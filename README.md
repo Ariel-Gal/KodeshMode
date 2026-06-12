@@ -9,14 +9,30 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Ariel-Gal/KodeshMode/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Ariel-Gal/KodeshMode?style=social"></a>
-  <a href="https://github.com/Ariel-Gal/KodeshMode/network/members"><img alt="GitHub forks" src="https://img.shields.io/github/forks/Ariel-Gal/KodeshMode?style=social"></a>
-  <a href="https://github.com/Ariel-Gal/KodeshMode/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/Ariel-Gal/KodeshMode"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/Ariel-Gal/KodeshMode"></a>
-  <img alt="Connect IQ" src="https://img.shields.io/badge/Garmin-Connect%20IQ-007cc3">
+  <a href="https://github.com/Ariel-Gal/KodeshMode/stargazers">
+    <img alt="GitHub stars" src="https://img.shields.io/github/stars/Ariel-Gal/KodeshMode?style=social">
+  </a>
+  <a href="https://github.com/Ariel-Gal/KodeshMode/network/members">
+    <img alt="GitHub forks" src="https://img.shields.io/github/forks/Ariel-Gal/KodeshMode?style=social">
+  </a>
+  <a href="https://github.com/Ariel-Gal/KodeshMode/issues">
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/Ariel-Gal/KodeshMode">
+  </a>
+  <a href="https://github.com/Ariel-Gal/KodeshMode/blob/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/github/license/Ariel-Gal/KodeshMode">
+  </a>
+  <a href="https://github.com/Ariel-Gal/KodeshMode/releases">
+    <img alt="GitHub release" src="https://img.shields.io/github/v/release/Ariel-Gal/KodeshMode?include_prereleases">
+  </a>
+  <img alt="Garmin Connect IQ" src="https://img.shields.io/badge/Garmin-Connect%20IQ-007CC3">
   <img alt="Monkey C" src="https://img.shields.io/badge/Monkey%20C-3.1%2B-orange">
-  <a href="https://github.com"><img alt="GitHub release" src="https://shields.io"></a>
+  <img alt="Open Source" src="https://img.shields.io/badge/Open%20Source-Yes-brightgreen">
+</p>
 
+<p align="center">
+  <a href="https://github.com/Ariel-Gal/KodeshMode/releases">
+    Download the latest release
+  </a>
 </p>
 
 <p align="center">
