@@ -1,0 +1,50 @@
+# Garmin Connect IQ build output
+bin/
+gen/
+build/
+out/
+*.prg
+*.iq
+*.debug.xml
+*.log
+
+# Garmin developer keys / signing keys
+developer_key
+developer_key.*
+*.der
+*.key
+*.pem
+*.p12
+*.jks
+
+# Local SDK / IDE files
+.local/
+.settings/
+.project
+.classpath
+*.iml
+
+# VS Code local settings
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python cache / tools
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Generated bitmap fonts
+resources/fonts/*.fnt
+resources/fonts/*.png
+
+# Original font files
+*.ttf
+*.otf
+.logs

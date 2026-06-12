@@ -1,0 +1,48 @@
+<properties>
+    <!-- List settings use numeric properties because Connect IQ list settings must save numbers. -->
+    <property id="clockStyle" type="number">0</property>
+    <property id="clockFont" type="number">0</property>
+    <property id="clockSize" type="number">36</property>
+    <property id="fontColor" type="number">0</property>
+    <property id="timeFormat" type="number">0</property>
+    <property id="language" type="number">0</property>
+
+    <!-- Optional content. -->
+    <property id="showParasha" type="boolean">true</property>
+    <property id="showHebrewDate" type="boolean">true</property>
+    <property id="hebrewDateSize" type="number">22</property>
+    <property id="showOmer" type="boolean">true</property>
+    <property id="showBattery" type="boolean">false</property>
+    <property id="parashaSize" type="number">24</property>
+    <property id="showShabbatTimes" type="boolean">false</property>
+    <property id="shabbatTimesSize" type="number">24</property>
+    <property id="shabbatProgress" type="boolean">true</property>
+
+    <!-- Shabbat and zmanim settings. -->
+    <property id="location" type="number">0</property>
+    <property id="endMethod" type="number">0</property>
+    <property id="candleOffset" type="number">20</property>
+    <property id="preShabbatAlert" type="number">15</property>
+    <property id="parashaSchedule" type="number">0</property>
+    <property id="isTouch" type="boolean">false</property>
+    <property id="touchDisabledConfirmed" type="boolean">false</property>
+    <property id="shabbatSpecialMode" type="boolean">false</property>
+
+    <!-- Mobile-only layout offsets in pixels. The watch menu does not expose these. -->
+    <property id="clockX" type="number">0</property>
+    <property id="clockY" type="number">0</property>
+    <property id="progressX" type="number">0</property>
+    <property id="progressY" type="number">0</property>
+    <property id="omerX" type="number">0</property>
+    <property id="omerY" type="number">0</property>
+    <property id="parashaX" type="number">0</property>
+    <property id="parashaY" type="number">0</property>
+    <property id="statusX" type="number">0</property>
+    <property id="statusY" type="number">0</property>
+    <property id="hebrewDateX" type="number">0</property>
+    <property id="hebrewDateY" type="number">0</property>
+    <property id="shabbatTimesX" type="number">0</property>
+    <property id="shabbatTimesY" type="number">0</property>
+    <property id="batteryX" type="number">0</property>
+    <property id="batteryY" type="number">0</property>
+</properties>

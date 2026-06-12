@@ -1,0 +1,228 @@
+<settings>
+    <setting propertyKey="@Properties.clockStyle" title="@Strings.SettingClockStyleTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.OptionDigital</listEntry>
+            <listEntry value="1">@Strings.OptionAnalog</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.clockFont" title="@Strings.SettingClockFontTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.OptionSystem</listEntry>
+            <listEntry value="1">@Strings.OptionVarela</listEntry>
+            <listEntry value="2">@Strings.OptionStam</listEntry>
+            <listEntry value="3">@Strings.OptionSimple</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.clockSize" title="@Strings.SettingClockSizeTitle">
+        <settingConfig type="list">
+            <listEntry value="18">@Strings.OptionSize18</listEntry>
+            <listEntry value="22">@Strings.OptionSize22</listEntry>
+            <listEntry value="24">@Strings.OptionSize24</listEntry>
+            <listEntry value="28">@Strings.OptionSize28</listEntry>
+            <listEntry value="30">@Strings.OptionSize30</listEntry>
+            <listEntry value="36">@Strings.OptionSize36</listEntry>
+            <listEntry value="44">@Strings.OptionSize44</listEntry>
+            <listEntry value="52">@Strings.OptionSize52</listEntry>
+            <listEntry value="60">@Strings.OptionSize60</listEntry>
+            <listEntry value="68">@Strings.OptionSize68</listEntry>
+            <listEntry value="76">@Strings.OptionSize76</listEntry>
+            <listEntry value="84">@Strings.OptionSize84</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.fontColor" title="@Strings.SettingFontColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.OptionWhite</listEntry>
+            <listEntry value="1">@Strings.OptionGray</listEntry>
+            <listEntry value="2">@Strings.OptionYellow</listEntry>
+            <listEntry value="3">@Strings.OptionRed</listEntry>
+            <listEntry value="4">@Strings.OptionGreen</listEntry>
+            <listEntry value="5">@Strings.OptionBlue</listEntry>
+            <listEntry value="6">@Strings.OptionOrange</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.timeFormat" title="@Strings.SettingTimeFormatTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.OptionHourMinute</listEntry>
+            <listEntry value="1">@Strings.OptionHourMinuteSecond</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.language" title="@Strings.SettingLanguageTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.OptionHebrew</listEntry>
+            <listEntry value="1">@Strings.OptionEnglish</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.showParasha" title="@Strings.SettingShowParashaTitle">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.parashaSize" title="@Strings.SettingParashaSizeTitle">
+        <settingConfig type="list">
+            <listEntry value="18">@Strings.OptionSize18</listEntry>
+            <listEntry value="22">@Strings.OptionSize22</listEntry>
+            <listEntry value="24">@Strings.OptionSize24</listEntry>
+            <listEntry value="28">@Strings.OptionSize28</listEntry>
+            <listEntry value="30">@Strings.OptionSize30</listEntry>
+            <listEntry value="36">@Strings.OptionSize36</listEntry>
+            <listEntry value="44">@Strings.OptionSize44</listEntry>
+            <listEntry value="52">@Strings.OptionSize52</listEntry>
+            <listEntry value="60">@Strings.OptionSize60</listEntry>
+            <listEntry value="68">@Strings.OptionSize68</listEntry>
+            <listEntry value="76">@Strings.OptionSize76</listEntry>
+            <listEntry value="84">@Strings.OptionSize84</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.showHebrewDate" title="@Strings.SettingShowHebrewDateTitle">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.hebrewDateSize" title="@Strings.SettingHebrewDateSizeTitle">
+        <settingConfig type="list">
+            <listEntry value="18">@Strings.OptionSize18</listEntry>
+            <listEntry value="22">@Strings.OptionSize22</listEntry>
+            <listEntry value="24">@Strings.OptionSize24</listEntry>
+            <listEntry value="28">@Strings.OptionSize28</listEntry>
+            <listEntry value="30">@Strings.OptionSize30</listEntry>
+            <listEntry value="36">@Strings.OptionSize36</listEntry>
+            <listEntry value="44">@Strings.OptionSize44</listEntry>
+            <listEntry value="52">@Strings.OptionSize52</listEntry>
+            <listEntry value="60">@Strings.OptionSize60</listEntry>
+            <listEntry value="68">@Strings.OptionSize68</listEntry>
+            <listEntry value="76">@Strings.OptionSize76</listEntry>
+            <listEntry value="84">@Strings.OptionSize84</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.showOmer" title="@Strings.SettingShowOmerTitle">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.showBattery" title="@Strings.SettingShowBatteryTitle">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.showShabbatTimes" title="@Strings.SettingShowShabbatTimesTitle">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.shabbatTimesSize" title="@Strings.SettingShabbatTimesSizeTitle">
+        <settingConfig type="list">
+            <listEntry value="18">@Strings.OptionSize18</listEntry>
+            <listEntry value="22">@Strings.OptionSize22</listEntry>
+            <listEntry value="24">@Strings.OptionSize24</listEntry>
+            <listEntry value="28">@Strings.OptionSize28</listEntry>
+            <listEntry value="30">@Strings.OptionSize30</listEntry>
+            <listEntry value="36">@Strings.OptionSize36</listEntry>
+            <listEntry value="44">@Strings.OptionSize44</listEntry>
+            <listEntry value="52">@Strings.OptionSize52</listEntry>
+            <listEntry value="60">@Strings.OptionSize60</listEntry>
+            <listEntry value="68">@Strings.OptionSize68</listEntry>
+            <listEntry value="76">@Strings.OptionSize76</listEntry>
+            <listEntry value="84">@Strings.OptionSize84</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.shabbatProgress" title="@Strings.SettingShabbatProgressTitle">
+        <settingConfig type="boolean" />
+    </setting>
+
+    <setting propertyKey="@Properties.location" title="@Strings.SettingLocationTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.OptionJerusalem</listEntry>
+            <listEntry value="1">@Strings.OptionTelAviv</listEntry>
+            <listEntry value="2">@Strings.OptionHaifa</listEntry>
+            <listEntry value="3">@Strings.OptionEilat</listEntry>
+            <listEntry value="4">@Strings.OptionGps</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.endMethod" title="@Strings.SettingEndMethodTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.OptionGeonim</listEntry>
+            <listEntry value="1">@Strings.OptionRabbeinuTam</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.candleOffset" title="@Strings.SettingCandleOffsetTitle">
+        <settingConfig type="list">
+            <listEntry value="20">@Strings.Option20Minutes</listEntry>
+            <listEntry value="30">@Strings.Option30Minutes</listEntry>
+            <listEntry value="40">@Strings.Option40Minutes</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.preShabbatAlert" title="@Strings.SettingPreShabbatAlertTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.OptionOff</listEntry>
+            <listEntry value="5">@Strings.Option5Minutes</listEntry>
+            <listEntry value="10">@Strings.Option10Minutes</listEntry>
+            <listEntry value="15">@Strings.Option15Minutes</listEntry>
+            <listEntry value="30">@Strings.Option30Minutes</listEntry>
+            <listEntry value="40">@Strings.Option40Minutes</listEntry>
+            <listEntry value="60">@Strings.Option60Minutes</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.parashaSchedule" title="@Strings.SettingParashaScheduleTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.OptionIsrael</listEntry>
+            <listEntry value="1">@Strings.OptionDiaspora</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.isTouch" title="@Strings.SettingIsTouchTitle">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.touchDisabledConfirmed" title="@Strings.SettingTouchDisabledConfirmedTitle">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.shabbatSpecialMode" title="@Strings.SettingSpecialModeTitle">
+        <settingConfig type="boolean" />
+    </setting>
+
+    <!-- Mobile-only layout controls. Values are pixel offsets from the built-in layout. -->
+    <setting propertyKey="@Properties.clockX" title="@Strings.SettingClockXTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.clockY" title="@Strings.SettingClockYTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.progressX" title="@Strings.SettingProgressXTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.progressY" title="@Strings.SettingProgressYTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.omerX" title="@Strings.SettingOmerXTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.omerY" title="@Strings.SettingOmerYTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.parashaX" title="@Strings.SettingParashaXTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.parashaY" title="@Strings.SettingParashaYTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.statusX" title="@Strings.SettingStatusXTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.statusY" title="@Strings.SettingStatusYTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.hebrewDateX" title="@Strings.SettingHebrewDateXTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.hebrewDateY" title="@Strings.SettingHebrewDateYTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.shabbatTimesX" title="@Strings.SettingShabbatTimesXTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.shabbatTimesY" title="@Strings.SettingShabbatTimesYTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.batteryX" title="@Strings.SettingBatteryXTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+    <setting propertyKey="@Properties.batteryY" title="@Strings.SettingBatteryYTitle">
+        <settingConfig type="numeric" min="-120" max="120" />
+    </setting>
+</settings>

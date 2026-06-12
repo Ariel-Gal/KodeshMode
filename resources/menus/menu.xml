@@ -1,0 +1,168 @@
+<menus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <menu2 id="MainMenu" title="Main Menu">
+        <menu-item id="display_settings" label="Display Settings" />
+        <menu-item id="shabbat_times" label="Shabbat &amp; Times" />
+    </menu2>
+
+    <menu2 id="DisplaySettingsMenu" title="Display">
+        <menu-item id="clock_settings" label="Clock" />
+        <menu-item id="additional_content" label="Additional Content" />
+        <menu-item id="language_settings" label="Language" />
+    </menu2>
+
+    <menu2 id="ClockSettingsMenu" title="Clock">
+        <menu-item id="clock_style" label="Clock Style" />
+        <menu-item id="clock_font" label="Clock Font" />
+        <menu-item id="clock_size" label="Clock Size" />
+        <menu-item id="font_color" label="Font Color" />
+        <menu-item id="time_format" label="Format" />
+    </menu2>
+
+    <menu2 id="ClockStyleMenu" title="Clock Style">
+        <menu-item id="clock_digital" label="Digital" />
+        <menu-item id="clock_analog" label="Analog" />
+    </menu2>
+
+    <menu2 id="ClockFontMenu" title="Clock Font">
+        <menu-item id="clock_system" label="System" />
+        <menu-item id="clock_varela" label="Varela" />
+        <menu-item id="clock_stam" label="Stam" />
+        <menu-item id="clock_simple" label="Simple" />
+    </menu2>
+
+    <menu2 id="ClockSizeMenu" title="Clock Size">
+        <menu-item id="clock_size_18" label="18" />
+        <menu-item id="clock_size_22" label="22" />
+        <menu-item id="clock_size_24" label="24" />
+        <menu-item id="clock_size_28" label="28" />
+        <menu-item id="clock_size_30" label="30" />
+        <menu-item id="clock_size_36" label="36" />
+        <menu-item id="clock_size_44" label="44" />
+        <menu-item id="clock_size_52" label="52" />
+        <menu-item id="clock_size_60" label="60" />
+        <menu-item id="clock_size_68" label="68" />
+        <menu-item id="clock_size_76" label="76" />
+        <menu-item id="clock_size_84" label="84" />
+    </menu2>
+
+    <menu2 id="FontColorMenu" title="Color">
+        <menu-item id="color_white" label="White" />
+        <menu-item id="color_gray" label="Gray" />
+        <menu-item id="color_yellow" label="Yellow" />
+        <menu-item id="color_red" label="Red" />
+        <menu-item id="color_green" label="Green" />
+        <menu-item id="color_blue" label="Blue" />
+        <menu-item id="color_orange" label="Orange" />
+    </menu2>
+
+    <menu2 id="TimeFormatMenu" title="Format">
+        <menu-item id="format_hm" label="Hour:Minute" />
+        <menu-item id="format_hms" label="Hour:Minute:Second" />
+    </menu2>
+
+    <menu2 id="AdditionalContentMenu" title="Content">
+        <toggle-menu-item id="show_parasha" label="Show Parasha" />
+        <toggle-menu-item id="shabbat_progress" label="Shabbat Progress" />
+        <toggle-menu-item id="show_hebrew_date" label="Hebrew Date" />
+        <menu-item id="hebrew_date_size" label="Hebrew Date Size" />
+        <menu-item id="parasha_size" label="Parasha Size" />
+        <toggle-menu-item id="show_shabbat_times" label="Shabbat Times" />
+        <menu-item id="shabbat_times_size" label="Shabbat Times Size" />
+        <toggle-menu-item id="show_omer" label="Omer Count" />
+        <toggle-menu-item id="show_battery" label="Battery" />
+    </menu2>
+
+    <menu2 id="HebrewDateSizeMenu" title="Hebrew Date Size">
+        <menu-item id="clock_size_18" label="18" />
+        <menu-item id="clock_size_22" label="22" />
+        <menu-item id="clock_size_24" label="24" />
+        <menu-item id="clock_size_28" label="28" />
+        <menu-item id="clock_size_30" label="30" />
+        <menu-item id="clock_size_36" label="36" />
+        <menu-item id="clock_size_44" label="44" />
+        <menu-item id="clock_size_52" label="52" />
+        <menu-item id="clock_size_60" label="60" />
+        <menu-item id="clock_size_68" label="68" />
+        <menu-item id="clock_size_76" label="76" />
+        <menu-item id="clock_size_84" label="84" />
+    </menu2>
+
+    <menu2 id="ParashaSizeMenu" title="Parasha Size">
+        <menu-item id="clock_size_18" label="18" />
+        <menu-item id="clock_size_22" label="22" />
+        <menu-item id="clock_size_24" label="24" />
+        <menu-item id="clock_size_28" label="28" />
+        <menu-item id="clock_size_30" label="30" />
+        <menu-item id="clock_size_36" label="36" />
+        <menu-item id="clock_size_44" label="44" />
+        <menu-item id="clock_size_52" label="52" />
+        <menu-item id="clock_size_60" label="60" />
+        <menu-item id="clock_size_68" label="68" />
+        <menu-item id="clock_size_76" label="76" />
+        <menu-item id="clock_size_84" label="84" />
+    </menu2>
+
+    <menu2 id="ShabbatTimesSizeMenu" title="Shabbat Times Size">
+        <menu-item id="clock_size_18" label="18" />
+        <menu-item id="clock_size_22" label="22" />
+        <menu-item id="clock_size_24" label="24" />
+        <menu-item id="clock_size_28" label="28" />
+        <menu-item id="clock_size_30" label="30" />
+        <menu-item id="clock_size_36" label="36" />
+        <menu-item id="clock_size_44" label="44" />
+        <menu-item id="clock_size_52" label="52" />
+        <menu-item id="clock_size_60" label="60" />
+        <menu-item id="clock_size_68" label="68" />
+        <menu-item id="clock_size_76" label="76" />
+        <menu-item id="clock_size_84" label="84" />
+    </menu2>
+
+    <menu2 id="LanguageMenu" title="Language">
+        <menu-item id="lang_en" label="English" />
+        <menu-item id="lang_he" label="Hebrew" />
+    </menu2>
+
+    <menu2 id="ShabbatTimesMenu" title="Shabbat">
+        <menu-item id="location_settings" label="Location" />
+        <menu-item id="shabbat_end_method" label="End Method" />
+        <menu-item id="candle_offset" label="Candle Offset" />
+        <menu-item id="pre_shabbat_alert" label="Pre-Shabbat Alert" />
+        <toggle-menu-item id="touch_disabled_confirmed" label="Touch Disabled" />
+        <toggle-menu-item id="special_mode" label="Special Mode" />
+        <menu-item id="parasha_schedule" label="Parasha Schedule" />
+    </menu2>
+
+    <menu2 id="LocationMenu" title="Location">
+        <menu-item id="loc_jerusalem" label="Jerusalem" />
+        <menu-item id="loc_telaviv" label="Tel Aviv" />
+        <menu-item id="loc_haifa" label="Haifa" />
+        <menu-item id="loc_eilat" label="Eilat" />
+        <menu-item id="loc_gps" label="Last Known GPS" />
+    </menu2>
+
+    <menu2 id="EndMethodMenu" title="End Method">
+        <menu-item id="end_geonim" label="Geonim" />
+        <menu-item id="end_rt" label="Rabbeinu Tam" />
+    </menu2>
+
+    <menu2 id="CandleOffsetMenu" title="Candle Offset">
+        <menu-item id="offset_20" label="20 Minutes" />
+        <menu-item id="offset_30" label="30 Minutes" />
+        <menu-item id="offset_40" label="40 Minutes" />
+    </menu2>
+
+    <menu2 id="PreShabbatAlertMenu" title="Alert">
+        <menu-item id="alert_off" label="Off" />
+        <menu-item id="alert_5" label="5 Min Before" />
+        <menu-item id="alert_10" label="10 Min Before" />
+        <menu-item id="alert_15" label="15 Min Before" />
+        <menu-item id="alert_30" label="30 Min Before" />
+        <menu-item id="alert_40" label="40 Min Before" />
+        <menu-item id="alert_60" label="60 Min Before" />
+    </menu2>
+
+    <menu2 id="ParashaScheduleMenu" title="Parasha Schedule">
+        <menu-item id="israel" label="Israel" />
+        <menu-item id="diaspora" label="Diaspora" />
+    </menu2>
+</menus>
