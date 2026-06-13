@@ -171,6 +171,12 @@ module ShabbatMode {
         }
 
         if (!isEnabled()) {
+            if (Storage.getValue("hasSeenGuide") == null) {
+                if (isHebrew()) {
+                    return "לחץ START להפעלה";
+                }
+                return "Press START to enable";
+            }
             return shabbatModeOffText();
         }
 
@@ -338,6 +344,7 @@ module ShabbatMode {
         }
 
         KodeshSettings.setValue(KEY_ENABLED, true);
+        Storage.setValue("hasSeenGuide", true);
         clearStatus();
         return true;
     }
