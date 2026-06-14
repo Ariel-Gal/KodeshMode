@@ -1099,7 +1099,7 @@ class KodeshModeView extends WatchUi.View {
 
             if (!status.equals("")) {
                 var sx = (width / 2) + shiftX + getLayoutOffsetX("status");
-                var sy = (height.toFloat() * 0.25f).toNumber() + shiftY + getLayoutOffsetY("status");
+                var sy = (height.toFloat() * 0.32f).toNumber() + shiftY + getLayoutOffsetY("status");
                 var statusFont = Graphics.FONT_XTINY;
                 var lang = KodeshSettings.getValue("language");
                 var isHebrew = lang == null || (lang as String).equals("lang_he");
@@ -1138,7 +1138,7 @@ class KodeshModeView extends WatchUi.View {
             }
 
             var x = (width / 2) + shiftX + getLayoutOffsetX("status");
-            var y = (height.toFloat() * 0.245f).toNumber() + shiftY + getLayoutOffsetY("status");
+            var y = (height.toFloat() * 0.32f).toNumber() + shiftY + getLayoutOffsetY("status");
 
             dc.setColor(getSecondaryRenderColor(isAod), Graphics.COLOR_TRANSPARENT);
             dc.drawText(
