@@ -243,9 +243,52 @@
     <string id="TextOmerFormat">יום $1$ לעומר</string>
     <string id="TextOmerTodayFormat">היום $1$ לעומר</string>
     <string id="TextHebrewDateFormat">$1$ ב$2$</string>
-    <string id="TextShabbatModeOff">מצב שבת כבוי</string>
+    <string id="TextShabbatModeOff">מצב שבת כבוי\nכדי להפעיל לחץ GPS</string>
+    <string id="TextShabbatModeOffEn">Shabbat Mode off\nPress GPS to activate</string>
     <string id="TextTouchOffRequired">כבה מגע לפני שבת</string>
+    <string id="TextTouchOffRequiredEn">Turn touch off first</string>
     <string id="TextSettingsOnPhone">הגדרות דרך הטלפון</string>
+    <string id="TextSettingsOnPhoneEn">Settings are on the phone</string>
+
+    <string id="TextExitInstructionHe">לחץ START 5 פעמים ליציאה</string>
+    <string id="TextExitInstructionEn">Press START 5 times to exit</string>
+    <string id="TextExitProgressHe">יציאה </string>
+    <string id="TextExitProgressEn">Exit </string>
+
+    <string id="TextGuideEnableHe">הפעלת מצב שבת</string>
+    <string id="TextGuideEnableEn">Enable Shabbat Mode</string>
+    <string id="TextGuidePressStartHe">לחץ START להפעלה</string>
+    <string id="TextGuidePressStartEn">Press START button</string>
+    <string id="TextGuideBeforeHe">דרישות קדם:</string>
+    <string id="TextGuideBeforeEn">Before enabling:</string>
+    <string id="TextGuideBTHe">כבה בלוטות'</string>
+    <string id="TextGuideBTEn">Turn Bluetooth off</string>
+    <string id="TextGuideActivityHe">כבה מעקב פעילות</string>
+    <string id="TextGuideActivityEn">Turn Activity off</string>
+
+    <string id="TextGuideWhileActiveHe">במצב שבת</string>
+    <string id="TextGuideWhileActiveEn">While Active</string>
+    <string id="TextGuideBackBlockedHe">BACK חסום</string>
+    <string id="TextGuideBackBlockedEn">BACK key is blocked</string>
+    <string id="TextGuideToExitHe">ליציאה:</string>
+    <string id="TextGuideToExitEn">To exit:</string>
+    <string id="TextGuideActionHe">לחץ START</string>
+    <string id="TextGuideActionEn">Press START</string>
+    <string id="TextGuide5TimesHe">5 פעמים ליציאה</string>
+    <string id="TextGuide5TimesEn">5 times to exit</string>
+
+    <string id="TextGuideProtectionHe">הגנת מסך</string>
+    <string id="TextGuideProtectionEn">Screen Protection</string>
+    <string id="TextGuideAmoledHe">AMOLED:</string>
+    <string id="TextGuideAmoledEn">AMOLED:</string>
+    <string id="TextGuideBurnInOnHe">הגנת צריבה פעילה</string>
+    <string id="TextGuideBurnInOnEn">Burn-in protection on</string>
+    <string id="TextGuideBurnInOffHe">הגנת צריבה כבויה</string>
+    <string id="TextGuideBurnInOffEn">Burn-in protection off</string>
+    <string id="TextGuideMipHe">MIP / סולארי:</string>
+    <string id="TextGuideMipEn">MIP / Solar:</string>
+    <string id="TextGuideStaticHe">תצוגה קבועה</string>
+    <string id="TextGuideStaticEn">Static display</string>
     <string id="HebMonthHe12Leap">אדר א׳</string>
     <string id="HebMonthHe13Punct">אדר ב׳</string>
     <string id="HebLetter1">א</string>

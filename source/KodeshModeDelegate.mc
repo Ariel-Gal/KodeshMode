@@ -43,9 +43,9 @@ class KodeshModeDelegate extends WatchUi.BehaviorDelegate {
 
     function showExitInstruction() as Void {
         if (ShabbatMode.isHebrew()) {
-            ShabbatMode.setStatus("לחץ START 5 פעמים ליציאה");
+            ShabbatMode.setStatus(WatchUi.loadResource(Rez.Strings.TextExitInstructionHe));
         } else {
-            ShabbatMode.setStatus("Press START 5 times to exit");
+            ShabbatMode.setStatus(WatchUi.loadResource(Rez.Strings.TextExitInstructionEn));
         }
         WatchUi.requestUpdate();
     }
@@ -76,9 +76,9 @@ class KodeshModeDelegate extends WatchUi.BehaviorDelegate {
             }
 
             if (ShabbatMode.isHebrew()) {
-                ShabbatMode.setStatus("יציאה " + _exitTapCount + "/" + EXIT_TAPS);
+                ShabbatMode.setStatus(WatchUi.loadResource(Rez.Strings.TextExitProgressHe) + _exitTapCount + "/" + EXIT_TAPS);
             } else {
-                ShabbatMode.setStatus("Exit " + _exitTapCount + "/" + EXIT_TAPS);
+                ShabbatMode.setStatus(WatchUi.loadResource(Rez.Strings.TextExitProgressEn) + _exitTapCount + "/" + EXIT_TAPS);
             }
             WatchUi.requestUpdate();
         } else {

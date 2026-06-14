@@ -58,23 +58,23 @@ module ShabbatMode {
 
     function shabbatModeOffText() as String {
         if (isHebrew()) {
-            return loadTextResource(Rez.Strings.TextShabbatModeOff) + "\nכדי להפעיל לחץ GPS";
+            return loadTextResource(Rez.Strings.TextShabbatModeOff);
         }
-        return "Shabbat Mode off\nPress GPS to activate";
+        return loadTextResource(Rez.Strings.TextShabbatModeOffEn);
     }
 
     function touchOffRequiredText() as String {
         if (isHebrew()) {
             return loadTextResource(Rez.Strings.TextTouchOffRequired);
         }
-        return "Turn touch off first";
+        return loadTextResource(Rez.Strings.TextTouchOffRequiredEn);
     }
 
     function settingsOnPhoneText() as String {
         if (isHebrew()) {
             return loadTextResource(Rez.Strings.TextSettingsOnPhone);
         }
-        return "Settings are on the phone";
+        return loadTextResource(Rez.Strings.TextSettingsOnPhoneEn);
     }
 
     // User-defined touch profile. Garmin does not expose a reliable, universal

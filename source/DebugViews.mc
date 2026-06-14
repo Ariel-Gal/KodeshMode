@@ -167,9 +167,9 @@ class GuideView extends WatchUi.View {
         var lineH = (h.toFloat() * 0.11f).toNumber();
 
         if (isHe) {
-            drawHebrewLine(dc, w, topY, "הפעלת מצב שבת", Graphics.COLOR_YELLOW);
+            drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideEnableHe), Graphics.COLOR_YELLOW);
         } else {
-            drawTitle(dc, w, topY, "Enable Shabbat Mode", Graphics.COLOR_YELLOW);
+            drawTitle(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideEnableEn), Graphics.COLOR_YELLOW);
         }
 
         topY += lineH - 4;
@@ -177,25 +177,25 @@ class GuideView extends WatchUi.View {
         topY += 14;
 
         if (isHe) {
-            drawHebrewLine(dc, w, topY, "לחץ START להפעלה", Graphics.COLOR_WHITE);
+            drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuidePressStartHe), Graphics.COLOR_WHITE);
             topY += lineH;
             drawDivider(dc, w, topY);
             topY += 12;
-            drawHebrewLine(dc, w, topY, "דרישות קדם:", Graphics.COLOR_LT_GRAY);
+            drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideBeforeHe), Graphics.COLOR_LT_GRAY);
             topY += lineH - 4;
-            drawHebrewLine(dc, w, topY, "כבה בלוטות'", Graphics.COLOR_WHITE);
+            drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideBTHe), Graphics.COLOR_WHITE);
             topY += lineH - 6;
-            drawHebrewLine(dc, w, topY, "כבה מעקב פעילות", Graphics.COLOR_WHITE);
+            drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideActivityHe), Graphics.COLOR_WHITE);
         } else {
-            drawLine(dc, w, topY, "Press START button", Graphics.COLOR_WHITE);
+            drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuidePressStartEn), Graphics.COLOR_WHITE);
             topY += lineH;
             drawDivider(dc, w, topY);
             topY += 12;
-            drawLine(dc, w, topY, "Before enabling:", Graphics.COLOR_LT_GRAY);
+            drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideBeforeEn), Graphics.COLOR_LT_GRAY);
             topY += lineH - 4;
-            drawLine(dc, w, topY, "Turn Bluetooth off", Graphics.COLOR_WHITE);
+            drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideBTEn), Graphics.COLOR_WHITE);
             topY += lineH - 6;
-            drawLine(dc, w, topY, "Turn Activity off", Graphics.COLOR_WHITE);
+            drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideActivityEn), Graphics.COLOR_WHITE);
         }
     }
 
@@ -205,9 +205,9 @@ class GuideView extends WatchUi.View {
         var lineH = (h.toFloat() * 0.11f).toNumber();
 
         if (isHe) {
-            drawHebrewLine(dc, w, topY, "במצב שבת", Graphics.COLOR_YELLOW);
+            drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideWhileActiveHe), Graphics.COLOR_YELLOW);
         } else {
-            drawTitle(dc, w, topY, "While Active", Graphics.COLOR_YELLOW);
+            drawTitle(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideWhileActiveEn), Graphics.COLOR_YELLOW);
         }
 
         topY += lineH - 4;
@@ -215,21 +215,21 @@ class GuideView extends WatchUi.View {
         topY += 14;
 
         if (isHe) {
-            drawHebrewLine(dc, w, topY, "BACK חסום", Graphics.COLOR_LT_GRAY);
+            drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideBackBlockedHe), Graphics.COLOR_LT_GRAY);
             topY += lineH - 2;
-            drawHebrewLine(dc, w, topY, "ליציאה:", Graphics.COLOR_LT_GRAY);
+            drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideToExitHe), Graphics.COLOR_LT_GRAY);
             topY += lineH - 4;
-            drawHebrewLine(dc, w, topY, "לחץ START", Graphics.COLOR_GREEN);
+            drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideActionHe), Graphics.COLOR_GREEN);
             topY += lineH - 6;
-            drawHebrewLine(dc, w, topY, "5 פעמים ליציאה", Graphics.COLOR_GREEN);
+            drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuide5TimesHe), Graphics.COLOR_GREEN);
         } else {
-            drawLine(dc, w, topY, "BACK key is blocked", Graphics.COLOR_LT_GRAY);
+            drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideBackBlockedEn), Graphics.COLOR_LT_GRAY);
             topY += lineH;
-            drawLine(dc, w, topY, "To exit:", Graphics.COLOR_LT_GRAY);
+            drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideToExitEn), Graphics.COLOR_LT_GRAY);
             topY += lineH - 4;
-            drawLine(dc, w, topY, "Press START", Graphics.COLOR_GREEN);
+            drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideActionEn), Graphics.COLOR_GREEN);
             topY += lineH - 6;
-            drawLine(dc, w, topY, "5 times to exit", Graphics.COLOR_GREEN);
+            drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuide5TimesEn), Graphics.COLOR_GREEN);
         }
     }
 
@@ -238,9 +238,9 @@ class GuideView extends WatchUi.View {
         var lineH = (h.toFloat() * 0.11f).toNumber();
 
         if (isHe) {
-            drawHebrewLine(dc, w, topY, "הגנת מסך", Graphics.COLOR_YELLOW);
+            drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideProtectionHe), Graphics.COLOR_YELLOW);
         } else {
-            drawTitle(dc, w, topY, "Screen Protection", Graphics.COLOR_YELLOW);
+            drawTitle(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideProtectionEn), Graphics.COLOR_YELLOW);
         }
 
         topY += lineH - 4;
@@ -252,31 +252,31 @@ class GuideView extends WatchUi.View {
 
         if (isHe) {
             if (isAmoled) {
-                drawHebrewLine(dc, w, topY, "AMOLED:", Graphics.COLOR_LT_GRAY);
+                drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideAmoledHe), Graphics.COLOR_LT_GRAY);
                 topY += lineH - 4;
                 if (isProtectorOn) {
-                    drawHebrewLine(dc, w, topY, "הגנת צריבה פעילה", Graphics.COLOR_WHITE);
+                    drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideBurnInOnHe), Graphics.COLOR_WHITE);
                 } else {
-                    drawHebrewLine(dc, w, topY, "הגנת צריבה כבויה", Graphics.COLOR_WHITE);
+                    drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideBurnInOffHe), Graphics.COLOR_WHITE);
                 }
             } else {
-                drawHebrewLine(dc, w, topY, "MIP / סולארי:", Graphics.COLOR_LT_GRAY);
+                drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideMipHe), Graphics.COLOR_LT_GRAY);
                 topY += lineH - 4;
-                drawHebrewLine(dc, w, topY, "תצוגה קבועה", Graphics.COLOR_WHITE);
+                drawHebrewLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideStaticHe), Graphics.COLOR_WHITE);
             }
         } else {
             if (isAmoled) {
-                drawLine(dc, w, topY, "AMOLED:", Graphics.COLOR_LT_GRAY);
+                drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideAmoledEn), Graphics.COLOR_LT_GRAY);
                 topY += lineH - 4;
                 if (isProtectorOn) {
-                    drawLine(dc, w, topY, "Burn-in protection on", Graphics.COLOR_WHITE);
+                    drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideBurnInOnEn), Graphics.COLOR_WHITE);
                 } else {
-                    drawLine(dc, w, topY, "Burn-in protection off", Graphics.COLOR_WHITE);
+                    drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideBurnInOffEn), Graphics.COLOR_WHITE);
                 }
             } else {
-                drawLine(dc, w, topY, "MIP / Solar:", Graphics.COLOR_LT_GRAY);
+                drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideMipEn), Graphics.COLOR_LT_GRAY);
                 topY += lineH - 4;
-                drawLine(dc, w, topY, "Static display", Graphics.COLOR_WHITE);
+                drawLine(dc, w, topY, WatchUi.loadResource(Rez.Strings.TextGuideStaticEn), Graphics.COLOR_WHITE);
             }
         }
     }
