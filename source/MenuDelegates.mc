@@ -79,6 +79,13 @@ class DisplaySettingsDelegate extends WatchUi.Menu2InputDelegate {
                 oItem.setEnabled(KodeshSettings.getValue("showOmer") != false);
             }
 
+            var foIdx = menu.findItemById(:force_omer);
+
+            if (foIdx != -1) {
+                var foItem = menu.getItem(foIdx) as WatchUi.ToggleMenuItem;
+                foItem.setEnabled(KodeshSettings.getValue("forceOmer") == true);
+            }
+
             var bIdx = menu.findItemById(:show_battery);
 
             if (bIdx != -1) {
@@ -245,6 +252,8 @@ class AdditionalContentDelegate extends WatchUi.Menu2InputDelegate {
                 KodeshSettings.setLocalValue("showShabbatTimes", isEnabled);
             } else if (id == :show_omer) {
                 KodeshSettings.setLocalValue("showOmer", isEnabled);
+            } else if (id == :force_omer) {
+                KodeshSettings.setLocalValue("forceOmer", isEnabled);
             } else if (id == :show_battery) {
                 KodeshSettings.setLocalValue("showBattery", isEnabled);
             } else if (id == :screen_protector) {

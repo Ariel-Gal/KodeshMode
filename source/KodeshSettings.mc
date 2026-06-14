@@ -137,7 +137,7 @@ module KodeshSettings {
         return [
             "clockStyle", "clockFont", "clockSize", "fontColor", "timeFormat",
             "language", "showParasha", "showHebrewDate", "hebrewDateSize",
-            "showOmer", "showBattery", "parashaSize", "showShabbatTimes",
+            "showOmer", "forceOmer", "showBattery", "parashaSize", "showShabbatTimes",
             "shabbatTimesSize", "statusSize", "shabbatProgress", "screenProtector", "location", "endMethod",
             "candleOffset", "preShabbatAlert", "parashaSchedule",
             "isTouch", "touchDisabledConfirmed", "shabbatSpecialMode",
@@ -582,6 +582,7 @@ module KodeshSettings {
         setValue("showHebrewDate", true);
         setValue("hebrewDateSize", "clock_size_24");
         setValue("showOmer", true);
+        setValue("forceOmer", false);
         setValue("showBattery", false);
         setValue("parashaSize", "clock_size_24");
         setValue("showShabbatTimes", false);

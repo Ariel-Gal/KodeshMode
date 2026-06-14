@@ -92,6 +92,9 @@
     <setting propertyKey="@Properties.showOmer" title="@Strings.SettingShowOmerTitle">
         <settingConfig type="boolean" />
     </setting>
+    <setting propertyKey="@Properties.forceOmer" title="@Strings.SettingForceOmerTitle">
+        <settingConfig type="boolean" />
+    </setting>
     <setting propertyKey="@Properties.showBattery" title="@Strings.SettingShowBatteryTitle">
         <settingConfig type="boolean" />
     </setting>

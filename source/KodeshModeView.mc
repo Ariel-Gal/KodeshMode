@@ -649,7 +649,7 @@ class KodeshModeView extends WatchUi.View {
             // Top inner line: Omer first, otherwise Parasha.
             var topText = "";
             var topKey = "omer";
-            if (getToggleValue("showOmer", true)) {
+            if (getToggleValue("showOmer", true) || KodeshSettings.getValue("forceOmer") == true) {
                 topText = getOmerText(now);
             }
 
@@ -1045,7 +1045,11 @@ class KodeshModeView extends WatchUi.View {
                 day = heb.day + 44;
             }
 
-            if (day < 1 || day > 49) {
+            if (KodeshSettings.getValue("forceOmer") == true) {
+                if (day < 1 || day > 49) {
+                    day = 33; // Default to Lag BaOmer for testing if outside Omer
+                }
+            } else if (day < 1 || day > 49) {
                 return "";
             }
 
@@ -1062,7 +1066,7 @@ class KodeshModeView extends WatchUi.View {
 
     function drawOmer(dc as Graphics.Dc, width as Number, height as Number, now, shiftX as Number, shiftY as Number, isAod as Boolean) as Void {
         try {
-            if (!getToggleValue("showOmer", true)) {
+            if (!getToggleValue("showOmer", true) && KodeshSettings.getValue("forceOmer") != true) {
                 return;
             }
 
@@ -1444,7 +1448,7 @@ class KodeshModeView extends WatchUi.View {
         var hebSmall = getMipSmallHebrewFont();
 
         var omerText = "";
-        if (getToggleValue("showOmer", true)) {
+        if (getToggleValue("showOmer", true) || KodeshSettings.getValue("forceOmer") == true) {
             omerText = getOmerText(now);
         }
 
