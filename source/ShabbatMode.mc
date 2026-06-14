@@ -359,12 +359,14 @@ module ShabbatMode {
     }
 
     function enable() as Boolean {
-        if (!freezeLastGpsLocation()) {
+        // Check prerequisites BEFORE freezing GPS to avoid a stale fix persisting
+        // in Storage when the enable attempt is rejected.
+        if (!canEnable()) {
             KodeshSettings.setValue(KEY_ENABLED, false);
             return false;
         }
 
-        if (!canEnable()) {
+        if (!freezeLastGpsLocation()) {
             KodeshSettings.setValue(KEY_ENABLED, false);
             return false;
         }

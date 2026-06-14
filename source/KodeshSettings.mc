@@ -137,7 +137,7 @@ module KodeshSettings {
         return [
             "clockStyle", "clockFont", "clockSize", "fontColor", "timeFormat",
             "language", "showParasha", "showHebrewDate", "hebrewDateSize",
-            "showOmer", "forceOmer", "showBattery", "parashaSize", "showShabbatTimes",
+            "showOmer", "omerSize", "forceOmer", "showBattery", "parashaSize", "showShabbatTimes",
             "shabbatTimesSize", "statusSize", "shabbatProgress", "screenProtector", "location", "endMethod",
             "candleOffset", "preShabbatAlert", "parashaSchedule",
             "isTouch", "touchDisabledConfirmed", "shabbatSpecialMode",
@@ -217,6 +217,7 @@ module KodeshSettings {
             key.equals("parashaSize") ||
             key.equals("shabbatTimesSize") ||
             key.equals("statusSize") ||
+            key.equals("omerSize") ||
             key.equals("location") ||
             key.equals("endMethod") ||
             key.equals("candleOffset") ||
@@ -276,6 +277,8 @@ module KodeshSettings {
         if (key.equals("hebrewDateSize")) { return "clock_size_24"; }
         if (key.equals("parashaSize")) { return "clock_size_24"; }
         if (key.equals("shabbatTimesSize")) { return "clock_size_24"; }
+        if (key.equals("omerSize")) { return "clock_size_24"; }
+        if (key.equals("statusSize")) { return "clock_size_12"; }
         if (key.equals("location")) { return "loc_jerusalem"; }
         if (key.equals("endMethod")) { return "end_geonim"; }
         if (key.equals("candleOffset")) { return "offset_20"; }
@@ -315,7 +318,7 @@ module KodeshSettings {
             return 0;
         }
 
-        if (key.equals("clockSize") || key.equals("hebrewDateSize") || key.equals("parashaSize") || key.equals("shabbatTimesSize") || key.equals("statusSize")) {
+        if (key.equals("clockSize") || key.equals("hebrewDateSize") || key.equals("parashaSize") || key.equals("shabbatTimesSize") || key.equals("statusSize") || key.equals("omerSize")) {
             if (value.equals("clock_size_12") || value.equals("12")) { return 12; }
             if (value.equals("clock_size_18") || value.equals("18")) { return 18; }
             if (value.equals("clock_size_24") || value.equals("clock_size_small") || value.equals("24") || value.equals("22") || value.equals("clock_size_22")) { return 24; }
@@ -389,7 +392,8 @@ module KodeshSettings {
         if (key.equals("hebrewDateSize")) { return 24; }
         if (key.equals("parashaSize")) { return 24; }
         if (key.equals("shabbatTimesSize")) { return 24; }
-        if (key.equals("statusSize")) { return 8; }
+        if (key.equals("omerSize")) { return 24; }
+        if (key.equals("statusSize")) { return 12; }
         return 36;
     }
 
@@ -406,7 +410,7 @@ module KodeshSettings {
             return "clock_system";
         }
 
-        if (key.equals("clockSize") || key.equals("hebrewDateSize") || key.equals("parashaSize") || key.equals("shabbatTimesSize") || key.equals("statusSize")) {
+        if (key.equals("clockSize") || key.equals("hebrewDateSize") || key.equals("parashaSize") || key.equals("shabbatTimesSize") || key.equals("statusSize") || key.equals("omerSize")) {
             if (value == 12) { return "clock_size_12"; }
             if (value == 18) { return "clock_size_18"; }
             if (value == 24 || value == 22) { return "clock_size_24"; }
@@ -458,12 +462,13 @@ module KodeshSettings {
         }
 
         if (key.equals("preShabbatAlert")) {
-            if (value == 5) { return "alert_5"; }
+            if (value == 5)  { return "alert_5"; }
             if (value == 10) { return "alert_10"; }
+            if (value == 15) { return "alert_15"; }
             if (value == 30) { return "alert_30"; }
             if (value == 40) { return "alert_40"; }
             if (value == 60) { return "alert_60"; }
-            if (value == 0) { return "alert_off"; }
+            if (value == 0)  { return "alert_off"; }
             return "alert_15";
         }
 
@@ -582,6 +587,7 @@ module KodeshSettings {
         setValue("showHebrewDate", true);
         setValue("hebrewDateSize", "clock_size_24");
         setValue("showOmer", true);
+        setValue("omerSize", "clock_size_24");
         setValue("forceOmer", false);
         setValue("showBattery", false);
         setValue("parashaSize", "clock_size_24");

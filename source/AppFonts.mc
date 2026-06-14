@@ -8,6 +8,8 @@ module AppFonts {
     var mClockFontKey as String = "";
     var mHebrewTextFont = null;
     var mHebrewTextFontKey as String = "";
+    var mOmerFont = null;
+    var mOmerFontKey as String = "";
     var mParashaFont = null;
     var mParashaFontKey as String = "";
     var mHebrewDateFont = null;
@@ -22,6 +24,8 @@ module AppFonts {
         mClockFontKey = "";
         mHebrewTextFont = null;
         mHebrewTextFontKey = "";
+        mOmerFont = null;
+        mOmerFontKey = "";
         mParashaFont = null;
         mParashaFontKey = "";
         mHebrewDateFont = null;
@@ -198,8 +202,16 @@ module AppFonts {
         return getSizeLabelForMode(getHebrewDateSizeMode());
     }
 
+    function getOmerSizeMode() as String {
+        return getSizeModeForKey("omerSize", "clock_size_24");
+    }
+
+    function getOmerSizeLabel() as String {
+        return getSizeLabelForMode(getOmerSizeMode());
+    }
+
     function getStatusSizeMode() as String {
-        return getSizeModeForKey("statusSize", "clock_size_8");
+        return getSizeModeForKey("statusSize", "clock_size_12");
     }
 
     function getStatusSizeLabel() as String {
@@ -286,6 +298,14 @@ module AppFonts {
             return mShabbatTimesFont;
         }
 
+        if (role.equals("omer")) {
+            if (mOmerFont != null && mOmerFontKey.equals(key)) { return mOmerFont; }
+            mOmerFont = null;
+            mOmerFontKey = key;
+            mOmerFont = resourceForFont(family, sizeMode);
+            return mOmerFont;
+        }
+
         if (mStatusFont != null && mStatusFontKey.equals(key)) { return mStatusFont; }
         mStatusFont = null;
         mStatusFontKey = key;
@@ -319,6 +339,10 @@ module AppFonts {
 
     function getHebrewDateFont() {
         return getRoleFont("hebrewDate", "varela", getHebrewDateSizeMode());
+    }
+
+    function getOmerFont() {
+        return getRoleFont("omer", "varela", getOmerSizeMode());
     }
 
     function getStatusFont() {

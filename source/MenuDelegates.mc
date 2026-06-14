@@ -143,7 +143,7 @@ class SelectionDelegate extends WatchUi.Menu2InputDelegate {
         if (!value.equals("")) {
             KodeshSettings.setLocalValue(_key, value);
 
-            if (_key.equals("clockFont") || _key.equals("clockSize") || _key.equals("hebrewDateSize") || _key.equals("parashaSize") || _key.equals("shabbatTimesSize")) {
+            if (_key.equals("clockFont") || _key.equals("clockSize") || _key.equals("hebrewDateSize") || _key.equals("parashaSize") || _key.equals("shabbatTimesSize") || _key.equals("omerSize") || _key.equals("statusSize")) {
                 AppFonts.clearCustomFontCache();
             }
         }
@@ -270,6 +270,8 @@ class AdditionalContentDelegate extends WatchUi.Menu2InputDelegate {
             WatchUi.pushView(new Rez.Menus.ParashaSizeMenu(), new SelectionDelegate("parashaSize"), WatchUi.SLIDE_LEFT);
         } else if (id == :shabbat_times_size) {
             WatchUi.pushView(new Rez.Menus.ShabbatTimesSizeMenu(), new SelectionDelegate("shabbatTimesSize"), WatchUi.SLIDE_LEFT);
+        } else if (id == :omer_size) {
+            WatchUi.pushView(new Rez.Menus.OmerSizeMenu(), new SelectionDelegate("omerSize"), WatchUi.SLIDE_LEFT);
         }
     }
 }

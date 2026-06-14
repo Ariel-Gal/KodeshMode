@@ -482,6 +482,7 @@ class KodeshModeView extends WatchUi.View {
 
     function drawAnalogNumbers(dc as Graphics.Dc, centerX as Number, centerY as Number, radius as Number, isAod as Boolean) as Void {
         var font = getAnalogNumberFont(radius, isAod);
+        if (font == null) { return; }  // Guard: font loading failed, skip number ring
         var color = isAod ? 0x8A8A8A : Graphics.COLOR_WHITE;
         var numberRadius = (radius.toFloat() * 0.765f).toNumber();
 
@@ -662,7 +663,15 @@ class KodeshModeView extends WatchUi.View {
             }
 
             if (!topText.equals("")) {
-                drawAnalogCenterText(dc, centerX + getLayoutOffsetX(topKey), topY + getLayoutOffsetY(topKey), hebTop, topText, secondary);
+                var topFont = hebTop;
+                if (topKey.equals("omer")) {
+                    var omerFont = AppFonts.getOmerFont();
+                    if (omerFont != null) { topFont = omerFont; }
+                } else if (topKey.equals("parasha")) {
+                    var parashaFont = AppFonts.getParashaFont();
+                    if (parashaFont != null) { topFont = parashaFont; }
+                }
+                drawAnalogCenterText(dc, centerX + getLayoutOffsetX(topKey), topY + getLayoutOffsetY(topKey), topFont, topText, secondary);
             }
 
             // Hebrew date directly below the parasha/Omer line.
@@ -794,10 +803,12 @@ class KodeshModeView extends WatchUi.View {
         drawAnalogTicks(dc, centerX, centerY, radius, isAod);
         drawAnalogNumbers(dc, centerX, centerY, radius, isAod);
 
-        // Draw the same Jewish/Shabbat content in active mode and AOD.
-        // AOD gets dimmer colors from drawAnalogInnerContent(), and the whole
-        // face is pixel-shifted by getBurnInOffsetX/Y to reduce burn-in risk.
-        drawAnalogInnerContent(dc, centerX, centerY, radius, now, isAod);
+        // In AOD, use the stripped-down AOD inner content (no battery, times, Omer).
+        if (isAod) {
+            drawAnalogAodInnerContent(dc, centerX, centerY, radius, now);
+        } else {
+            drawAnalogInnerContent(dc, centerX, centerY, radius, now, false);
+        }
 
         drawAnalogHands(dc, clockTime, centerX, centerY, radius, isAod, showSeconds);
     }
@@ -1029,11 +1040,6 @@ class KodeshModeView extends WatchUi.View {
             var date = Gregorian.info(now, Time.FORMAT_SHORT);
             var jd = _parashaLookup.gregorianToJd(date.year, date.month, date.day);
 
-            // Safe evening rollover. Exact tzeit can be restored later once this path is stable.
-            if (date.hour >= 18) {
-                jd += 1;
-            }
-
             var heb = _parashaLookup.hebrewFromJd(jd);
             var day = 0;
 
@@ -1047,7 +1053,7 @@ class KodeshModeView extends WatchUi.View {
 
             if (KodeshSettings.getValue("forceOmer") == true) {
                 if (day < 1 || day > 49) {
-                    day = 33; // Default to Lag BaOmer for testing if outside Omer
+                    day = 33;
                 }
             } else if (day < 1 || day > 49) {
                 return "";
@@ -1076,10 +1082,10 @@ class KodeshModeView extends WatchUi.View {
                 return;
             }
 
-            var font = AppFonts.getHebrewTextFont();
+            var font = AppFonts.getOmerFont();
 
             if (font == null) {
-                return;
+                font = AppFonts.getHebrewTextFont();
             }
 
             var x = (width / 2) + shiftX + getLayoutOffsetX("omer");
@@ -1169,7 +1175,7 @@ class KodeshModeView extends WatchUi.View {
 
         var topFont = Graphics.FONT_XTINY;
         var lang = KodeshSettings.getValue("language");
-        var isHebrew = lang != null && (lang as String).equals("lang_he");
+        var isHebrew = lang == null || (lang as String).equals("lang_he");  // Default: Hebrew
         
         if (isHebrew) {
             try {
@@ -1178,6 +1184,8 @@ class KodeshModeView extends WatchUi.View {
                 topFont = _hebrewFont;
             }
         }
+
+        if (topFont == null) { topFont = Graphics.FONT_XTINY; }  // Guard against null font
 
         var x = (width / 2) + shiftX + getLayoutOffsetX("parasha");
         var y = (height.toFloat() * 0.18f).toNumber() + shiftY + getLayoutOffsetY("parasha");
@@ -1217,10 +1225,6 @@ class KodeshModeView extends WatchUi.View {
         var date = Gregorian.info(now, Time.FORMAT_SHORT);
         var jd = _parashaLookup.gregorianToJd(date.year, date.month, date.day);
 
-        if (date.hour >= 18) {
-            jd += 1;
-        }
-
         var heb = _parashaLookup.hebrewFromJd(jd);
         if (heb == null) {
             return "";
@@ -1230,6 +1234,11 @@ class KodeshModeView extends WatchUi.View {
         
         var isShort = false;
         try { isShort = KodeshSettings.getBool("shortHebrewDate", false); } catch(ex) {}
+        
+        var settings = System.getDeviceSettings();
+        if (settings.screenWidth <= 176) {
+            isShort = true;
+        }
         
         if (isShort) {
             return dayStr;
@@ -1462,27 +1471,33 @@ class KodeshModeView extends WatchUi.View {
         var timesText = getShabbatTimesText(now);
         var batteryText = getBatteryText();
 
-                if (!ShabbatMode.isEnabled()) {
-            var statusFont = AppFonts.getStatusFont();
-            if (statusFont == null) {
-                statusFont = hebSmall;
+        if (!ShabbatMode.isEnabled()) {
+            if (!statusText.equals("")) {
+                var statusFont = AppFonts.getStatusFont();
+                if (statusFont == null) { statusFont = hebSmall; }
+                drawMipCenteredText(dc, x + getLayoutOffsetX("status"), (height.toFloat() * 0.5f).toNumber() + getLayoutOffsetY("status"), statusFont, statusText, primary);
             }
-            drawMipCenteredText(dc, x + getLayoutOffsetX("status"), (height.toFloat() * 0.5f).toNumber() + getLayoutOffsetY("status"), statusFont, statusText, primary);
             return;
         }
 
         // Relative layout values are tuned for Instinct 3 Solar 45mm and still
         // scale safely on larger MIP/Fenix/Forerunner screens.
+        var topItems = [];
         if (!omerText.equals("")) {
-            drawMipCenteredText(dc, x + getLayoutOffsetX("omer"), (height.toFloat() * 0.105f).toNumber() + getLayoutOffsetY("omer"), hebSmall, omerText, alert);
+            var omerFont = AppFonts.getOmerFont();
+            if (omerFont == null) { omerFont = hebSmall; }
+            topItems.add({:text=>omerText, :font=>omerFont, :color=>alert, :key=>"omer", :baseY=>0.15f});
         }
-
         if (!parashaText.equals("")) {
-            drawMipCenteredText(dc, x + getLayoutOffsetX("parasha"), (height.toFloat() * 0.175f).toNumber() + getLayoutOffsetY("parasha"), hebMain, parashaText, secondary);
+            topItems.add({:text=>parashaText, :font=>hebMain, :color=>secondary, :key=>"parasha", :baseY=>0.15f});
         }
-
         if (!dateText.equals("")) {
-            drawMipCenteredText(dc, x + getLayoutOffsetX("hebrewDate"), (height.toFloat() * 0.255f).toNumber() + getLayoutOffsetY("hebrewDate"), hebSmall, dateText, secondary);
+            topItems.add({:text=>dateText, :font=>hebSmall, :color=>secondary, :key=>"hebrewDate", :baseY=>0.28f});
+        }
+        
+        for (var i = 0; i < topItems.size(); i++) {
+            var item = topItems[i] as Dictionary;
+            drawMipCenteredText(dc, x + getLayoutOffsetX(item[:key] as String), (height.toFloat() * (item[:baseY] as Float)).toNumber() + getLayoutOffsetY(item[:key] as String), item[:font] as Graphics.FontType, item[:text] as String, item[:color] as Number);
         }
 
         if (!statusText.equals("")) {
@@ -1503,7 +1518,9 @@ class KodeshModeView extends WatchUi.View {
         );
 
         if (!timesText.equals("")) {
-            drawMipCenteredText(dc, x + getLayoutOffsetX("shabbatTimes"), (height.toFloat() * 0.725f).toNumber() + getLayoutOffsetY("shabbatTimes"), AppFonts.getShabbatTimesFont(), timesText, secondary);
+            var timesFont = AppFonts.getShabbatTimesFont();
+            if (timesFont == null) { timesFont = Graphics.FONT_XTINY; }
+            drawMipCenteredText(dc, x + getLayoutOffsetX("shabbatTimes"), (height.toFloat() * 0.725f).toNumber() + getLayoutOffsetY("shabbatTimes"), timesFont, timesText, secondary);
         }
 
         if (!batteryText.equals("")) {
@@ -1561,9 +1578,18 @@ class KodeshModeView extends WatchUi.View {
             return;
         }
 
+        if (!ShabbatMode.isEnabled()) {
+            drawShabbatModeStatus(dc, width, height, shiftX, shiftY, isAod);
+            return;
+        }
+
         if (!useAnalogClock) {
+            var omerText2 = getOmerText(now);
             drawOmer(dc, width, height, now, shiftX, shiftY, isAod);
-            drawParasha(dc, width, height, now, shiftX, shiftY);
+            if (omerText2.equals("")) {
+                // Only draw Parasha if Omer is not shown (mirror analog logic)
+                drawParasha(dc, width, height, now, shiftX, shiftY);
+            }
             drawShabbatModeStatus(dc, width, height, shiftX, shiftY, isAod);
         }
 
