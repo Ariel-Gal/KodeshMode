@@ -18,6 +18,7 @@
     <property id="showBattery" type="boolean">false</property>
     <property id="parashaSize" type="number">24</property>
     <property id="showShabbatTimes" type="boolean">false</property>
+    <property id="showShabbatShalom" type="boolean">true</property>
     <property id="shabbatTimesSize" type="number">24</property>
     <property id="statusSize" type="number">12</property>
     <property id="shabbatProgress" type="boolean">true</property>
@@ -42,6 +43,8 @@
     <property id="omerY" type="number">0</property>
     <property id="parashaX" type="number">0</property>
     <property id="parashaY" type="number">0</property>
+    <property id="shabbatShalomX" type="number">0</property>
+    <property id="shabbatShalomY" type="number">0</property>
     <property id="statusX" type="number">0</property>
     <property id="statusY" type="number">0</property>
     <property id="hebrewDateX" type="number">0</property>

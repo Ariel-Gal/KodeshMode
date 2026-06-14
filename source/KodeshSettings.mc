@@ -137,13 +137,13 @@ module KodeshSettings {
         return [
             "clockStyle", "clockFont", "clockSize", "fontColor", "timeFormat",
             "language", "showParasha", "showHebrewDate", "hebrewDateSize",
-            "showOmer", "omerSize", "forceOmer", "showBattery", "parashaSize", "showShabbatTimes",
+            "showOmer", "omerSize", "forceOmer", "showBattery", "parashaSize", "showShabbatTimes", "showShabbatShalom",
             "shabbatTimesSize", "statusSize", "shabbatProgress", "screenProtector", "location", "endMethod",
             "candleOffset", "preShabbatAlert", "parashaSchedule",
             "isTouch", "touchDisabledConfirmed", "shabbatSpecialMode",
             "clockX", "clockY", "progressX", "progressY", "omerX", "omerY",
             "parashaX", "parashaY", "statusX", "statusY", "hebrewDateX", "hebrewDateY",
-            "shabbatTimesX", "shabbatTimesY", "batteryX", "batteryY"
+            "shabbatTimesX", "shabbatTimesY", "batteryX", "batteryY", "shabbatShalomX", "shabbatShalomY"
         ] as Array<String>;
     }
 

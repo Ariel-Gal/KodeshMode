@@ -113,6 +113,9 @@
     <setting propertyKey="@Properties.showShabbatTimes" title="@Strings.SettingShowShabbatTimesTitle">
         <settingConfig type="boolean" />
     </setting>
+    <setting propertyKey="@Properties.showShabbatShalom" title="@Strings.SettingShowShabbatShalomTitle">
+        <settingConfig type="boolean" />
+    </setting>
     <setting propertyKey="@Properties.shabbatTimesSize" title="@Strings.SettingShabbatTimesSizeTitle">
         <settingConfig type="list">
             <listEntry value="12">@Strings.OptionSize12</listEntry>

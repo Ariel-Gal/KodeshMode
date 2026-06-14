@@ -72,6 +72,13 @@ class DisplaySettingsDelegate extends WatchUi.Menu2InputDelegate {
                 tItem.setEnabled(KodeshSettings.getValue("showShabbatTimes") == true);
             }
 
+            var shIdx = menu.findItemById(:show_shabbat_shalom);
+
+            if (shIdx != -1) {
+                var shItem = menu.getItem(shIdx) as WatchUi.ToggleMenuItem;
+                shItem.setEnabled(KodeshSettings.getValue("showShabbatShalom") != false);
+            }
+
             var oIdx = menu.findItemById(:show_omer);
 
             if (oIdx != -1) {
@@ -250,6 +257,8 @@ class AdditionalContentDelegate extends WatchUi.Menu2InputDelegate {
                 KodeshSettings.setLocalValue("showHebrewDate", isEnabled);
             } else if (id == :show_shabbat_times) {
                 KodeshSettings.setLocalValue("showShabbatTimes", isEnabled);
+            } else if (id == :show_shabbat_shalom) {
+                KodeshSettings.setLocalValue("showShabbatShalom", isEnabled);
             } else if (id == :show_omer) {
                 KodeshSettings.setLocalValue("showOmer", isEnabled);
             } else if (id == :force_omer) {

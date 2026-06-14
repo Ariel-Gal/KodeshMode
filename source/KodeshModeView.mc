@@ -616,7 +616,10 @@ class KodeshModeView extends WatchUi.View {
             }
 
             if (isManualShabbatModeEnabled()) {
-                return loadTextResource(Rez.Strings.TextShabbatShalom);
+                var showShalom = KodeshSettings.getValue("showShabbatShalom");
+                if (showShalom == null || showShalom == true) {
+                    return loadTextResource(Rez.Strings.TextShabbatShalom);
+                }
             }
         } catch (ex) {
         }
@@ -1116,7 +1119,7 @@ class KodeshModeView extends WatchUi.View {
 
                 if (isHebrew) {
                     try {
-                        statusFont = AppFonts.getHebrewTextFont();
+                        statusFont = AppFonts.getStatusFont();
                     } catch (fontEx) {
                         statusFont = Graphics.FONT_XTINY;
                     }
@@ -1141,14 +1144,19 @@ class KodeshModeView extends WatchUi.View {
                 return;
             }
 
-            var font = AppFonts.getHebrewTextFont();
+            var showShalom = KodeshSettings.getValue("showShabbatShalom");
+            if (showShalom != null && showShalom == false) {
+                return;
+            }
+
+            var font = AppFonts.getStatusFont();
 
             if (font == null) {
                 return;
             }
 
-            var x = (width / 2) + shiftX + getLayoutOffsetX("status");
-            var y = (height.toFloat() * 0.32f).toNumber() + shiftY + getLayoutOffsetY("status");
+            var x = (width / 2) + shiftX + getLayoutOffsetX("shabbatShalom");
+            var y = (height.toFloat() * 0.32f).toNumber() + shiftY + getLayoutOffsetY("shabbatShalom");
 
             dc.setColor(getSecondaryRenderColor(isAod), Graphics.COLOR_TRANSPARENT);
             dc.drawText(
@@ -1584,12 +1592,8 @@ class KodeshModeView extends WatchUi.View {
         }
 
         if (!useAnalogClock) {
-            var omerText2 = getOmerText(now);
             drawOmer(dc, width, height, now, shiftX, shiftY, isAod);
-            if (omerText2.equals("")) {
-                // Only draw Parasha if Omer is not shown (mirror analog logic)
-                drawParasha(dc, width, height, now, shiftX, shiftY);
-            }
+            drawParasha(dc, width, height, now, shiftX, shiftY);
             drawShabbatModeStatus(dc, width, height, shiftX, shiftY, isAod);
         }
 

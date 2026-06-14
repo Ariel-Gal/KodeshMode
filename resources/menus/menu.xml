@@ -62,6 +62,7 @@
         <menu-item id="hebrew_date_size" label="Hebrew Date Size" />
         <menu-item id="parasha_size" label="Parasha Size" />
         <toggle-menu-item id="show_shabbat_times" label="Shabbat Times" />
+        <toggle-menu-item id="show_shabbat_shalom" label="Shabbat Shalom" />
         <menu-item id="shabbat_times_size" label="Shabbat Times Size" />
         <toggle-menu-item id="show_omer" label="Omer Count" />
         <menu-item id="omer_size" label="Omer Size" />
