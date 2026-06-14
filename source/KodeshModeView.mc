@@ -640,9 +640,9 @@ class KodeshModeView extends WatchUi.View {
             // - Parasha/Omer is moved higher (approx 80% of the inner radius area).
             // - Hebrew date sits directly below the parasha line.
             // - Shabbat times and battery are moved lower, but stay above the 6 digit.
-            var topY = centerY - (radius.toFloat() * 0.585f).toNumber();
-            var dateY = centerY - (radius.toFloat() * 0.465f).toNumber();
-            var statusY = centerY - (radius.toFloat() * 0.305f).toNumber();
+            var topY = centerY - (radius.toFloat() * 0.605f).toNumber();
+            var dateY = centerY - (radius.toFloat() * 0.455f).toNumber();
+            var statusY = centerY - (radius.toFloat() * 0.235f).toNumber();
             var timesY = centerY + (radius.toFloat() * 0.275f).toNumber();
             var batteryY = centerY + (radius.toFloat() * 0.405f).toNumber();
 

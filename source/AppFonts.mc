@@ -193,24 +193,6 @@ module AppFonts {
     function resourceForFont(family as String, sizeMode as String) {
         var size = normalizeClockSize(sizeMode);
 
-        if (family.equals("stam")) {
-            if (size.equals("clock_size_24")) { return WatchUi.loadResource(Rez.Fonts.Stam24); }
-            if (size.equals("clock_size_28")) { return WatchUi.loadResource(Rez.Fonts.Stam28); }
-            if (size.equals("clock_size_36")) { return WatchUi.loadResource(Rez.Fonts.Stam36); }
-            if (size.equals("clock_size_52")) { return WatchUi.loadResource(Rez.Fonts.Stam52); }
-            if (size.equals("clock_size_68")) { return WatchUi.loadResource(Rez.Fonts.Stam68); }
-            return WatchUi.loadResource(Rez.Fonts.Stam84);
-        }
-
-        if (family.equals("simple")) {
-            if (size.equals("clock_size_24")) { return WatchUi.loadResource(Rez.Fonts.Simple24); }
-            if (size.equals("clock_size_28")) { return WatchUi.loadResource(Rez.Fonts.Simple28); }
-            if (size.equals("clock_size_36")) { return WatchUi.loadResource(Rez.Fonts.Simple36); }
-            if (size.equals("clock_size_52")) { return WatchUi.loadResource(Rez.Fonts.Simple52); }
-            if (size.equals("clock_size_68")) { return WatchUi.loadResource(Rez.Fonts.Simple68); }
-            return WatchUi.loadResource(Rez.Fonts.Simple84);
-        }
-
         if (size.equals("clock_size_24")) { return WatchUi.loadResource(Rez.Fonts.Varela24); }
         if (size.equals("clock_size_28")) { return WatchUi.loadResource(Rez.Fonts.Varela28); }
         if (size.equals("clock_size_36")) { return WatchUi.loadResource(Rez.Fonts.Varela36); }
@@ -294,11 +276,7 @@ module AppFonts {
             return getSystemClockFontForSize(sizeMode);
         }
 
-        var fam = "varela";
-        if (family.equals("clock_stam")) { fam = "stam"; }
-        else if (family.equals("clock_simple")) { fam = "simple"; }
-
-        return getRoleFont("clock", fam, sizeMode);
+        return getRoleFont("clock", "varela", sizeMode);
     }
 
     function getVarelaFontForSize(sizeMode as String) {
@@ -327,14 +305,6 @@ module AppFonts {
 
         if (fontMode.equals("clock_system")) {
             return getSystemClockFontForSize(sizeMode);
-        }
-
-        if (fontMode.equals("clock_stam")) {
-            return getRoleFont("clock", "stam", sizeMode);
-        }
-
-        if (fontMode.equals("clock_simple")) {
-            return getRoleFont("clock", "simple", sizeMode);
         }
 
         return getRoleFont("clock", "varela", sizeMode);

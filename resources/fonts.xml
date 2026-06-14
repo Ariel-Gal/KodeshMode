@@ -5,16 +5,4 @@
     <font id="Varela52" filename="fonts/varela_52.fnt" antialias="true" />
     <font id="Varela68" filename="fonts/varela_68.fnt" antialias="true" />
     <font id="Varela84" filename="fonts/varela_84.fnt" antialias="true" />
-    <font id="Stam24" filename="fonts/stam_24.fnt" antialias="true" />
-    <font id="Stam28" filename="fonts/stam_28.fnt" antialias="true" />
-    <font id="Stam36" filename="fonts/stam_36.fnt" antialias="true" />
-    <font id="Stam52" filename="fonts/stam_52.fnt" antialias="true" />
-    <font id="Stam68" filename="fonts/stam_68.fnt" antialias="true" />
-    <font id="Stam84" filename="fonts/stam_84.fnt" antialias="true" />
-    <font id="Simple24" filename="fonts/simple_24.fnt" antialias="true" />
-    <font id="Simple28" filename="fonts/simple_28.fnt" antialias="true" />
-    <font id="Simple36" filename="fonts/simple_36.fnt" antialias="true" />
-    <font id="Simple52" filename="fonts/simple_52.fnt" antialias="true" />
-    <font id="Simple68" filename="fonts/simple_68.fnt" antialias="true" />
-    <font id="Simple84" filename="fonts/simple_84.fnt" antialias="true" />
 </resources>
