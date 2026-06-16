@@ -3,6 +3,24 @@
    Handles: scroll reveal, navbar, hamburger menu, smooth interactions
    ========================================================================== */
 
+function getSafeHttpsUrl(value, allowedHostnames = []) {
+  try {
+    const url = new URL(value);
+    if (url.protocol !== 'https:') return null;
+    if (allowedHostnames.length > 0 && !allowedHostnames.includes(url.hostname)) return null;
+    return url;
+  } catch {
+    return null;
+  }
+}
+
+function getSizedAvatarUrl(value, size) {
+  const url = getSafeHttpsUrl(value, ['avatars.githubusercontent.com']);
+  if (!url) return null;
+  url.searchParams.set('s', String(size));
+  return url.href;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // ── Scroll Reveal ──────────────────────────────────────────────────────
   const revealElements = document.querySelectorAll('.reveal');
@@ -51,9 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('open');
-      document.body.style.overflow = navLinks.classList.contains('open')
-        ? 'hidden'
-        : '';
+      document.body.classList.toggle('nav-open', navLinks.classList.contains('open'));
     });
 
     // Close menu when clicking a nav link
@@ -61,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('open');
-        document.body.style.overflow = '';
+        document.body.classList.remove('nav-open');
       });
     });
   }
@@ -103,8 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (entry.isIntersecting) {
             deviceCards.forEach((card, i) => {
               setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
+                card.classList.add('device-family-visible');
               }, i * 60);
             });
             deviceObserver.unobserve(entry.target);
@@ -116,9 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set initial state
     deviceCards.forEach((card) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      card.style.transition = 'opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)';
+      card.classList.add('device-family-staggered');
     });
 
     deviceObserver.observe(devicesGrid);
@@ -128,7 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const versionBadge = document.getElementById('latest-version-badge');
   if (versionBadge) {
     fetch('https://api.github.com/repos/Ariel-Gal/KodeshMode/releases/latest')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error(`GitHub API returned ${response.status}`);
+        return response.json();
+      })
       .then(data => {
         if (data && data.tag_name) {
           versionBadge.textContent = data.tag_name;
@@ -141,21 +157,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const contributorsContainer = document.getElementById('contributors-container');
   if (contributorsContainer) {
     fetch('https://api.github.com/repos/Ariel-Gal/KodeshMode/contributors')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error(`GitHub API returned ${response.status}`);
+        return response.json();
+      })
       .then(data => {
         if (Array.isArray(data)) {
           contributorsContainer.textContent = '';
           data.forEach(contributor => {
             if (contributor.type !== 'User') return;
             
+            const profileUrl = getSafeHttpsUrl(contributor.html_url, ['github.com']);
+            if (!profileUrl) return;
+
             const card = document.createElement('a');
-            card.href = contributor.html_url;
+            card.href = profileUrl.href;
             card.target = '_blank';
             card.rel = 'noopener noreferrer';
             card.className = 'contributor-card';
             
             const img = document.createElement('img');
-            img.src = contributor.avatar_url + '&s=120'; // optimized size
+            const avatarUrl = getSizedAvatarUrl(contributor.avatar_url, 120);
+            if (avatarUrl) img.src = avatarUrl;
             img.alt = contributor.login;
             img.className = 'contributor-avatar';
             img.loading = 'lazy';
@@ -177,7 +200,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const dynamicDevicesTrack = document.getElementById('dynamic-devices-track');
   if (dynamicDevicesTrack) {
     fetch('https://raw.githubusercontent.com/Ariel-Gal/KodeshMode/main/manifest.xml')
-      .then(response => response.text())
+      .then(response => {
+        if (!response.ok) throw new Error(`Manifest request returned ${response.status}`);
+        return response.text();
+      })
       .then(xmlText => {
         const regex = /<iq:product\s+id="([^"]+)"/g;
         let match;
@@ -281,108 +307,15 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(err => console.error('Error fetching manifest:', err));
   }
 
-  // ── Fetch Reviews from Garmin API ───────────────────────────────────────
+  // ── Reviews privacy note ────────────────────────────────────────────────
   const reviewsTrack = document.getElementById('dynamic-reviews-track');
   if (reviewsTrack) {
-    const rawUrl = 'https://apps.garmin.com/api/appsLibraryExternalServices/api/asw/apps/ab6e1936-1474-4898-a40d-febd3e3c8aeb/reviews?sortType=CreatedDate&ascending=false&latestVersionOnly=false&pageSize=20&withReviewTextOnly=true&startPageIndex=0';
-    // Use a CORS proxy since Garmin's API blocks cross-origin requests from browsers
-    const reviewsApiUrl = 'https://corsproxy.io/?' + encodeURIComponent(rawUrl);
-    
-    fetch(reviewsApiUrl)
-      .then(response => {
-        if (!response.ok) throw new Error('API restricted or failed');
-        return response.json();
-      })
-      .then(data => {
-        if (!Array.isArray(data)) return;
-        
-        // Filter out reviews below 4 stars and ensure they have text
-        const goodReviews = data.filter(review => review.rating >= 4 && review.text && review.text.trim().length > 0);
-        
-        if (goodReviews.length > 0) {
-          reviewsTrack.textContent = ''; // clear loading state safely
-          
-          const createCard = (review) => {
-            const card = document.createElement('div');
-            card.className = 'review-card';
-            
-            const stars = document.createElement('div');
-            stars.className = 'stars';
-            const starSvgPath = 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z';
-            for(let i=0; i<5; i++) {
-              const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-              svg.setAttribute('viewBox', '0 0 24 24');
-              if (i < review.rating) {
-                svg.setAttribute('fill', 'currentColor');
-              } else {
-                svg.setAttribute('fill', 'none');
-                svg.setAttribute('stroke', 'currentColor');
-                svg.setAttribute('stroke-width', '2');
-              }
-              const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-              path.setAttribute('d', starSvgPath);
-              svg.appendChild(path);
-              stars.appendChild(svg);
-            }
-            card.appendChild(stars);
+    reviewsTrack.textContent = '';
+    reviewsTrack.classList.add('no-marquee');
 
-            const p = document.createElement('p');
-            p.className = 'review-text';
-            if (/[\u0590-\u05FF]/.test(review.text)) p.dir = 'rtl';
-            p.textContent = '"' + review.text + '"'; // Safe from XSS
-            card.appendChild(p);
-
-            const authorDiv = document.createElement('div');
-            authorDiv.className = 'review-author';
-            authorDiv.style.display = 'flex';
-            authorDiv.style.flexDirection = 'column';
-            authorDiv.style.gap = '0.25rem';
-            
-            const row = document.createElement('div');
-            row.style.display = 'flex';
-            row.style.justifyContent = 'space-between';
-            row.style.width = '100%';
-            
-            const nameSpan = document.createElement('span');
-            nameSpan.textContent = '— ' + (review.reviewerFullName || 'User'); // Safe
-            row.appendChild(nameSpan);
-            
-            const dateSpan = document.createElement('span');
-            dateSpan.style.fontSize = '0.8rem';
-            dateSpan.style.fontWeight = '400';
-            dateSpan.style.textTransform = 'none';
-            dateSpan.style.color = 'var(--text-muted)';
-            dateSpan.style.opacity = '0.7';
-            dateSpan.textContent = new Date(review.date).toLocaleDateString();
-            row.appendChild(dateSpan);
-            
-            authorDiv.appendChild(row);
-            
-            const verSpan = document.createElement('span');
-            verSpan.style.fontSize = '0.75rem';
-            verSpan.style.fontWeight = '500';
-            verSpan.style.textTransform = 'none';
-            verSpan.style.color = 'var(--accent-mid)';
-            verSpan.style.opacity = '0.9';
-            const versionStr = review.appExternalVersion ? review.appExternalVersion.replace(' release', '') : '';
-            verSpan.textContent = 'Version ' + versionStr;
-            authorDiv.appendChild(verSpan);
-            
-            card.appendChild(authorDiv);
-            return card;
-          };
-
-          const cards = goodReviews.map(createCard);
-          
-          if (goodReviews.length >= 4) {
-            cards.forEach(c => reviewsTrack.appendChild(c));
-            goodReviews.map(createCard).forEach(c => reviewsTrack.appendChild(c));
-          } else {
-            reviewsTrack.classList.add('no-marquee');
-            cards.forEach(c => reviewsTrack.appendChild(c));
-          }
-        }
-      })
-      .catch(err => console.log('Could not fetch Garmin reviews (using static placeholders instead):', err));
+    const p = document.createElement('p');
+    p.className = 'fetch-status';
+    p.textContent = 'Reviews are available directly on the Garmin Connect IQ store.';
+    reviewsTrack.appendChild(p);
   }
 });

@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite",
     "build": "node scripts/build.mjs",
     "build:vite": "vite build",
-    "preview": "vite preview --host 0.0.0.0",
+    "preview": "vite preview",
     "check:security": "node scripts/security-check.mjs",
     "check": "npm run build && npm run check:security"
   },

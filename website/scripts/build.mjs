@@ -18,7 +18,7 @@ await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 await copyIfExists(publicDir, dist);
 
-for (const file of ['index.html', 'home.html', 'releases.html', 'style.css', 'main.js', 'releases.js']) {
+for (const file of ['index.html', 'home.html', 'releases.html', 'style.css', 'splash.css', 'main.js', 'releases.js']) {
   const source = path.join(root, file);
   const target = path.join(dist, file);
   await writeFile(target, await readFile(source, 'utf8'));
