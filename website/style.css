@@ -1186,7 +1186,7 @@ img {
   .gallery-track { grid-template-columns: repeat(3, 1fr); }
   .devices-grid { grid-template-columns: repeat(3, 1fr); }
   .privacy-card { grid-template-columns: 1fr; }
-  .privacy-visual { display: none; }
+  .privacy-illustration { display: none; }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 
@@ -1216,29 +1216,56 @@ img {
   .hero { min-height: auto; padding: 6rem 1rem 3rem; }
   .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
 
-  .showcase-ring { width: 300px; height: 300px; }
-  .showcase-devices { gap: 0.5rem; margin-top: 2rem; }
-  .showcase-img { width: 110px; }
-  .showcase-left { transform: rotateY(4deg) scale(0.85); }
-  .showcase-right { transform: rotateY(-4deg) scale(0.85); }
-  .showcase-center { transform: scale(1); }
+  /* Simplified Mobile Hero Showcase */
+  .showcase-ring { width: 250px; height: 250px; }
+  .showcase-devices { gap: 0; margin-top: 2rem; justify-content: center; }
+  .showcase-left, .showcase-right { display: none; } /* Hide side watches on mobile to reduce clutter */
+  .showcase-center { transform: scale(1.3); margin-top: 1rem; width: 140px; } /* Focus on center watch */
 
-  .features-grid { grid-template-columns: 1fr; }
-  .gallery-track { grid-template-columns: repeat(2, 1fr); }
-  .devices-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Mobile-Native Horizontal Scrolling Carousels */
+  .features-grid, .gallery-track, .devices-grid { 
+    display: flex; 
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2rem; 
+    margin: 0 -1rem; /* Pull out to screen edges */
+    padding: 1rem 1rem 2rem 1rem;
+    gap: 1rem;
+  }
+
+  /* Hide scrollbars for cleaner look */
+  .features-grid::-webkit-scrollbar, 
+  .gallery-track::-webkit-scrollbar, 
+  .devices-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .features-grid { -ms-overflow-style: none; scrollbar-width: none; }
+  .gallery-track { -ms-overflow-style: none; scrollbar-width: none; }
+  .devices-grid { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Size cards for mobile carousel */
+  .feature-card, .gallery-item, .device-family {
+    min-width: 85vw; /* Show peek of next card */
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+  }
+  
+  .gallery-item img { height: 180px; } /* Slightly smaller images on mobile gallery */
+
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
   
   .hero-scroll-hint { display: none; } /* Hide on mobile to save space */
 }
 
 @media (max-width: 480px) {
-  .showcase-img { width: 85px; } /* Prevent horizontal scroll on small devices */
   .hero-actions { flex-direction: column; width: 100%; gap: 1rem; }
   .hero-actions .btn { width: 100%; justify-content: center; padding: 1rem; }
   .cta-actions { flex-direction: column; width: 100%; gap: 1rem; }
   .cta-actions .btn { width: 100%; justify-content: center; }
-  .gallery-track { grid-template-columns: 1fr; gap: 1.5rem; }
-  .devices-grid { grid-template-columns: 1fr; }
   .privacy-card { padding: 2rem 1.5rem; }
 }
 
