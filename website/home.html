@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KodeshMode — Free & Open Source Shabbat Mode for Garmin</title>
+    <meta name="description" content="A Hebrew-first open source Garmin Connect IQ watch app for Shabbat-aware display, Hebrew date, parasha, zmanim, and clean watch layouts. Free, private, and beautiful." />
+    <meta name="keywords" content="KodeshMode, Shabbat, Garmin, Connect IQ, Hebrew, parasha, zmanim, open source, watch app" />
+    <meta property="og:title" content="KodeshMode — Free & Open Source Shabbat Mode for Garmin" />
+    <meta property="og:description" content="A Hebrew-first Garmin Connect IQ watch app for Shabbat-aware display, Hebrew date, parasha, and zmanim." />
+    <meta property="og:type" content="website" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/brand/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Security -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://corsproxy.io https://avatars.githubusercontent.com; connect-src 'self' https://api.github.com https://corsproxy.io https://raw.githubusercontent.com ws: wss:; style-src 'self' 'unsafe-inline';" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#" class="nav-logo">
+          <img src="/images/brand/favicon-32.png" alt="KodeshMode" class="nav-logo-icon" />
+          <span>KodeshMode</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#gallery" class="nav-link">Gallery</a>
+          <a href="#devices" class="nav-link">Devices</a>
+          <a href="./releases.html" class="nav-link">Releases</a>
+          <a href="https://github.com/Ariel-Gal/KodeshMode" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://apps.garmin.com/apps/ab6e1936-1474-4898-a40d-febd3e3c8aeb" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cta">
+            Install Free
+          </a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero" id="hero">
+      <div class="hero-bg-glow"></div>
+      <div class="hero-content">
+        <div class="hero-badge reveal">Open Source · Free Forever</div>
+        <h1 class="hero-title reveal">
+          <span class="gradient-text">Shabbat Mode</span><br />
+          for Your Garmin Watch
+        </h1>
+        <p class="hero-subtitle reveal">
+          Hebrew date, parasha, zmanim, and a clean Shabbat-aware display — beautifully rendered on 40+ Garmin devices. No tracking. No ads. Just kedusha.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="https://apps.garmin.com/apps/ab6e1936-1474-4898-a40d-febd3e3c8aeb" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Install on Connect IQ
+          </a>
+          <a href="./releases.html" class="btn btn-outline btn-lg">
+            Latest Release <span id="latest-version-badge" class="latest-version-badge-style"></span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-showcase reveal">
+        <div class="showcase-ring"></div>
+        <div class="showcase-devices">
+          <img src="/images/showcase/instinct-torch-shabbat-view.webp" alt="Instinct Torch Shabbat view" class="showcase-img showcase-left" />
+          <img src="/images/showcase/venu-gold-shabbat-view.webp" alt="Venu Gold Shabbat view" class="showcase-img showcase-center" />
+          <img src="/images/showcase/forerunner-black-shabbat-view.webp" alt="Forerunner Black Shabbat view" class="showcase-img showcase-right" />
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll to explore</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </header>
+
+    <!-- ============ FEATURES ============ -->
+    <section id="features" class="section features-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">What it does</span>
+          <h2 class="section-title">Everything You Need<br />for <span class="gradient-text">Shabbat</span></h2>
+          <p class="section-desc">A purpose-built watch app — not just a face — designed for controlled entry, exit, button behavior, and dedicated in-app screens.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+            </div>
+            <h3>Hebrew Display</h3>
+            <p>Hebrew-first UI with embedded bitmap fonts for reliable rendering across all Garmin devices.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            </div>
+            <h3>Shabbat Mode</h3>
+            <p>Dedicated Shabbat-aware status and display behavior with automatic entry and exit.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3>Weekly Parasha</h3>
+            <p>Automatic parasha display with Hebrew and English resource strings, always up to date.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h3>Hebrew Date</h3>
+            <p>Full Hebrew calendar date and month names displayed beautifully on your wrist.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Zmanim</h3>
+            <p>Shabbat start and end times based on your GPS location and configurable app settings.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Phone Settings</h3>
+            <p>Configure everything from Garmin Connect on your phone — language, layout, fonts, and more.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section id="gallery" class="section gallery-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">See it in action</span>
+          <h2 class="section-title">Beautiful on <span class="gradient-text">Every</span> Wrist</h2>
+        </div>
+        <div class="gallery-showcase">
+          <div class="gallery-track">
+            <div class="gallery-item reveal">
+              <img src="/images/showcase/venu-gold-shabbat-view.webp" alt="Venu Gold Shabbat view" />
+              <span class="gallery-label">Venu</span>
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/showcase/instinct-torch-shabbat-view.webp" alt="Instinct Torch Shabbat view" />
+              <span class="gallery-label">Instinct 3</span>
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/showcase/forerunner-black-shabbat-view.webp" alt="Forerunner Black Shabbat view" />
+              <span class="gallery-label">Forerunner</span>
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/showcase/slim-black-shabbat-view.webp" alt="Slim Black Shabbat view" />
+              <span class="gallery-label">Slim</span>
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/showcase/venu-gold-gps-prompt.webp" alt="Venu Gold GPS prompt" />
+              <span class="gallery-label">GPS Prompt</span>
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/showcase/instinct-torch-activating.webp" alt="Instinct activating" />
+              <span class="gallery-label">Activating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DEVICES ============ -->
+    <section id="devices" class="section devices-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Broad compatibility</span>
+          <h2 class="section-title"><span class="gradient-text">40+</span> Garmin Devices Supported</h2>
+          <p class="section-desc">From rugged outdoor to sleek fitness — KodeshMode runs wherever you go.</p>
+        </div>
+        <div class="devices-marquee-wrapper reveal">
+          <div class="devices-marquee-track" id="dynamic-devices-track">
+            <!-- Dynamic devices will be injected here via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRIVACY ============ -->
+    <section id="privacy" class="section privacy-section">
+      <div class="container">
+        <div class="privacy-card reveal">
+          <div class="privacy-content">
+            <span class="section-label">Built on trust</span>
+            <h2 class="section-title text-left">Your Privacy.<br /><span class="gradient-text">Our Priority.</span></h2>
+            <div class="privacy-points">
+              <div class="privacy-point">
+                <div class="privacy-check">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p><strong>100% Free & Open Source</strong> — MIT License, always.</p>
+              </div>
+              <div class="privacy-point">
+                <div class="privacy-check">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p><strong>No tracking or analytics</strong> — Zero data leaves your device.</p>
+              </div>
+              <div class="privacy-point">
+                <div class="privacy-check">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p><strong>Runs locally</strong> — All processing happens on your watch.</p>
+              </div>
+              <div class="privacy-point">
+                <div class="privacy-check">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p><strong>No ads, no fees</strong> — Free forever, community maintained.</p>
+              </div>
+            </div>
+            <a href="https://github.com/Ariel-Gal/KodeshMode/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="btn btn-outline mt-1">View on GitHub</a>
+          </div>
+          <div class="privacy-illustration reveal">
+            <svg viewBox="0 0 200 200" class="shield-svg" width="100%" height="100%">
+              <defs><linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+              <path d="M100 10 L180 40 L180 100 C180 150 140 180 100 190 C60 180 20 150 20 100 L20 40 Z" fill="url(#shieldGrad)" opacity="0.1" />
+              <path d="M100 25 L160 50 L160 100 C160 140 130 165 100 175 C70 165 40 140 40 100 L40 50 Z" fill="url(#shieldGrad)" />
+              <path d="M80 100 L95 115 L125 80" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section id="reviews" class="section testimonials-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">User Reviews</span>
+          <h2 class="section-title">Loved by the <span class="gradient-text">Community</span></h2>
+          <p class="section-desc">See what others are saying about KodeshMode on the Connect IQ store.</p>
+        </div>
+        <div class="testimonials-wrapper reveal">
+          <div class="testimonials-track" id="dynamic-reviews-track">
+            <!-- Loading indicator -->
+            <p class="text-muted center-mt-3">Loading real reviews...</p>
+          </div>
+        </div>
+        <div class="reveal center-mt-3">
+          <a href="https://apps.garmin.com/apps/ab6e1936-1474-4898-a40d-febd3e3c8aeb" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Read all reviews on Garmin</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-card reveal">
+          <h2>Ready for a More<br /><span class="gradient-text">Meaningful</span> Shabbat?</h2>
+          <p>Install KodeshMode on your Garmin in seconds. Completely free.</p>
+          <div class="cta-actions">
+            <a href="https://apps.garmin.com/apps/ab6e1936-1474-4898-a40d-febd3e3c8aeb" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+              Install on Connect IQ
+            </a>
+            <a href="https://github.com/Ariel-Gal/KodeshMode" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              Star on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTRIBUTORS ============ -->
+    <section id="contributors" class="section contributors-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Community</span>
+          <h2 class="section-title">Built by <span class="gradient-text">Contributors</span></h2>
+          <p class="section-desc">KodeshMode is an open source project powered by people who care.</p>
+        </div>
+        <div class="contributors-grid reveal" id="contributors-container">
+          <!-- Contributors will be injected here via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="nav-logo">
+              <img src="/images/brand/favicon-32.png" alt="KodeshMode" class="nav-logo-icon" />
+              <span>KodeshMode</span>
+            </div>
+            <p>Free & Open Source Shabbat Mode<br />for Garmin Connect IQ</p>
+          </div>
+          <div class="footer-col">
+            <h5>Project</h5>
+            <a href="https://github.com/Ariel-Gal/KodeshMode" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            <a href="./releases.html">Releases</a>
+            <a href="https://github.com/Ariel-Gal/KodeshMode/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contributing</a>
+          </div>
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <a href="https://github.com/Ariel-Gal/KodeshMode/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
+            <a href="https://github.com/Ariel-Gal/KodeshMode/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">Security</a>
+            <a href="https://github.com/Ariel-Gal/KodeshMode/blob/main/THIRD_PARTY_LICENSES.md" target="_blank" rel="noopener noreferrer">Third Party</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 KodeshMode Contributors · MIT License</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

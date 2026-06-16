@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Releases — KodeshMode</title>
+    <meta name="description" content="Changelog and releases for KodeshMode Garmin app." />
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/brand/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.png" />
+    <!-- Security -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://corsproxy.io https://avatars.githubusercontent.com; connect-src 'self' https://api.github.com https://corsproxy.io https://raw.githubusercontent.com ws: wss:; style-src 'self' 'unsafe-inline';" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="./home.html" class="nav-logo">
+          <img src="/images/brand/favicon-32.png" alt="KodeshMode" class="nav-logo-icon" />
+          <span class="nav-brand">KodeshMode</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+          <a href="./home.html#features" class="nav-link">Features</a>
+          <a href="./home.html#gallery" class="nav-link">Gallery</a>
+          <a href="./home.html#devices" class="nav-link">Devices</a>
+          <a href="./releases.html" class="nav-link">Releases</a>
+          <a href="https://github.com/Ariel-Gal/KodeshMode" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://apps.garmin.com/apps/ab6e1936-1474-4898-a40d-febd3e3c8aeb" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cta">
+            Install Free
+          </a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ============ RELEASES HERO ============ -->
+    <header class="hero releases-hero">
+      <div class="hero-bg-glow"></div>
+      <div class="hero-content max-w-800">
+        <div class="hero-badge reveal mb-1-5">Changelog</div>
+        <h1 class="hero-title reveal">
+          <span class="gradient-text">Releases</span> & Updates
+        </h1>
+        <p class="hero-subtitle reveal hero-subtitle-releases">
+          Stay up to date with the latest features, bug fixes, and improvements to KodeshMode.
+        </p>
+      </div>
+    </header>
+
+    <!-- ============ RELEASES CONTENT ============ -->
+    <section class="section pt-2">
+      <div class="container max-w-800">
+        <div id="releases-container" class="releases-feed">
+          <div class="loading-releases">
+            <p>Loading releases from GitHub...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="nav-logo">
+              <span>KodeshMode</span>
+            </div>
+            <p>Free & Open Source Shabbat Mode<br />for Garmin Connect IQ</p>
+          </div>
+          <div class="footer-col">
+            <h5>Project</h5>
+            <a href="https://github.com/Ariel-Gal/KodeshMode" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            <a href="https://github.com/Ariel-Gal/KodeshMode/releases" target="_blank" rel="noopener noreferrer">Releases</a>
+            <a href="https://github.com/Ariel-Gal/KodeshMode/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contributing</a>
+          </div>
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <a href="https://github.com/Ariel-Gal/KodeshMode/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
+            <a href="https://github.com/Ariel-Gal/KodeshMode/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">Security</a>
+            <a href="https://github.com/Ariel-Gal/KodeshMode/blob/main/THIRD_PARTY_LICENSES.md" target="_blank" rel="noopener noreferrer">Third Party</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 KodeshMode Contributors · MIT License</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+    <script type="module" src="./releases.js"></script>
+  </body>
+</html>

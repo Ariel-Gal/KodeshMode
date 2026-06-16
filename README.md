@@ -169,6 +169,7 @@ You can also build and run directly from the Garmin Monkey C VS Code extension.
 │   └── drawables/                   # App launcher assets
 ├── screenshots/                     # Device screenshots
 ├── docs/                            # Project documentation assets
+├── website/                         # Static landing page and website assets
 └── tools/                           # Font generation utilities
 ```
 

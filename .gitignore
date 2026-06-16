@@ -48,3 +48,7 @@ resources/fonts/*.png
 *.ttf
 *.otf
 .logs
+
+# Website
+website/node_modules/
+website/dist/

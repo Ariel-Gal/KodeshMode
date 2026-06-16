@@ -1,0 +1,22 @@
+{
+  "name": "KodeshMode",
+  "short_name": "KodeshMode",
+  "description": "Free and open source Shabbat mode for Garmin watches.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#05070c",
+  "theme_color": "#05070c",
+  "icons": [
+    {
+      "src": "./images/brand/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./images/brand/kodeshmode-logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

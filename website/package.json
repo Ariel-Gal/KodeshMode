@@ -1,0 +1,17 @@
+{
+  "name": "kodeshmode-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "node scripts/build.mjs",
+    "build:vite": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "check:security": "node scripts/security-check.mjs",
+    "check": "npm run build && npm run check:security"
+  },
+  "devDependencies": {
+    "vite": "8.0.16"
+  }
+}
