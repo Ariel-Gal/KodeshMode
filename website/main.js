@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!model) model = family;
 
           // Special capitalizations
-          model = model.replace(/Sq /g, 'Sq ').replace(/Music/g, 'Music');
+          model = model.replace(/sq /ig, 'Sq ').replace(/music/ig, 'Music');
 
           if (!familyMap[family]) {
             familyMap[family] = new Set();
