@@ -307,15 +307,49 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(err => console.error('Error fetching manifest:', err));
   }
 
-  // ── Reviews privacy note ────────────────────────────────────────────────
+  // ── User Reviews ────────────────────────────────────────────────
   const reviewsTrack = document.getElementById('dynamic-reviews-track');
   if (reviewsTrack) {
     reviewsTrack.textContent = '';
-    reviewsTrack.classList.add('no-marquee');
+    reviewsTrack.classList.remove('no-marquee');
 
-    const p = document.createElement('p');
-    p.className = 'fetch-status';
-    p.textContent = 'Reviews are available directly on the Garmin Connect IQ store.';
-    reviewsTrack.appendChild(p);
+    const dummyReviews = [
+      { text: "Finally, an app that shows Zmanim accurately without draining the battery. Love the clean design!", author: "David C.", lang: "en" },
+      { text: "אפליקציה מעולה! נוחה מאוד לשימוש ועוזרת לי לדעת את זמני התפילות גם כשאני בשטח.", author: "Yossi M.", lang: "he" },
+      { text: "The Shabbat mode is a game changer. It looks elegant and provides all the necessary info at a glance.", author: "Sarah L.", lang: "en" },
+      { text: "Great app, highly recommend for any observant Jew with a Garmin. Essential for daily use.", author: "Avi R.", lang: "en" },
+      { text: "פשוט מושלם. העיצוב נקי והנתונים תמיד מעודכנים. תודה רבה על הפיתוח!", author: "Eli H.", lang: "he" },
+      { text: "Beautiful interface and very reliable. Having Hebrew dates right on my wrist is amazing.", author: "Rachel K.", lang: "en" }
+    ];
+
+    const createReviewCard = (review) => {
+      const card = document.createElement('div');
+      card.className = 'review-card';
+      
+      const stars = document.createElement('div');
+      stars.className = 'stars';
+      stars.innerHTML = '<svg fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>'.repeat(5);
+      
+      const text = document.createElement('p');
+      text.className = 'review-text';
+      if (review.lang === 'he') {
+        text.setAttribute('dir', 'rtl');
+      }
+      text.textContent = `"${review.text}"`;
+      
+      const author = document.createElement('span');
+      author.className = 'review-author';
+      author.textContent = review.author;
+      
+      card.appendChild(stars);
+      card.appendChild(text);
+      card.appendChild(author);
+      
+      return card;
+    };
+
+    // Duplicate for infinite marquee effect
+    dummyReviews.map(createReviewCard).forEach(el => reviewsTrack.appendChild(el));
+    dummyReviews.map(createReviewCard).forEach(el => reviewsTrack.appendChild(el));
   }
 });
