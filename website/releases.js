@@ -5,9 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('https://api.github.com/repos/Ariel-Gal/KodeshMode/releases')
     .then(r => r.json())
     .then(releases => {
-      container.innerHTML = '';
+      container.textContent = '';
       if (!Array.isArray(releases) || releases.length === 0) {
-        container.innerHTML = '<p style="text-align:center; color: var(--text-muted);">No releases found.</p>';
+        const p = document.createElement('p');
+        p.textContent = 'No releases found.';
+        p.style.textAlign = 'center';
+        p.style.color = 'var(--text-muted)';
+        container.appendChild(p);
         return;
       }
 
@@ -18,42 +22,56 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Basic Markdown parsing for the release body
         let bodyHtml = rel.body || '';
-        
-        // Headers
         bodyHtml = bodyHtml.replace(/^### (.*$)/gim, '<h3>$1</h3>');
         bodyHtml = bodyHtml.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-        
-        // Bold and Italic
         bodyHtml = bodyHtml.replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>');
         bodyHtml = bodyHtml.replace(/\*(.*)\*/gim, '<em>$1</em>');
-        
-        // Lists
         bodyHtml = bodyHtml.replace(/^\* (.*$)/gim, '<li>$1</li>');
         bodyHtml = bodyHtml.replace(/^- (.*$)/gim, '<li>$1</li>');
         bodyHtml = bodyHtml.replace(/(<li>.*<\/li>)/gim, '<ul>$1</ul>');
-        bodyHtml = bodyHtml.replace(/<\/ul>\n<ul>/gim, '\n'); // merge adjacent uls
-        
-        // Links
+        bodyHtml = bodyHtml.replace(/<\/ul>\n<ul>/gim, '\n');
         bodyHtml = bodyHtml.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
-        
-        // Paragraphs
         bodyHtml = bodyHtml.replace(/\n\n/g, '</p><p>');
         bodyHtml = '<p>' + bodyHtml + '</p>';
 
         const el = document.createElement('div');
         el.className = 'release-card reveal';
-        el.innerHTML = `
-          <div class="release-header">
-            <h2 class="release-title"><a href="${rel.html_url}" target="_blank" rel="noopener noreferrer">${rel.name || rel.tag_name}</a></h2>
-            <div class="release-meta">
-              <span class="release-tag">${rel.tag_name}</span>
-              <span class="release-date">${date}</span>
-            </div>
-          </div>
-          <div class="release-body">
-            ${bodyHtml}
-          </div>
-        `;
+        
+        const header = document.createElement('div');
+        header.className = 'release-header';
+        
+        const titleH2 = document.createElement('h2');
+        titleH2.className = 'release-title';
+        const titleA = document.createElement('a');
+        titleA.href = rel.html_url;
+        titleA.target = '_blank';
+        titleA.rel = 'noopener noreferrer';
+        titleA.textContent = rel.name || rel.tag_name;
+        titleH2.appendChild(titleA);
+        header.appendChild(titleH2);
+        
+        const metaDiv = document.createElement('div');
+        metaDiv.className = 'release-meta';
+        const tagSpan = document.createElement('span');
+        tagSpan.className = 'release-tag';
+        tagSpan.textContent = rel.tag_name;
+        metaDiv.appendChild(tagSpan);
+        const dateSpan = document.createElement('span');
+        dateSpan.className = 'release-date';
+        dateSpan.textContent = date;
+        metaDiv.appendChild(dateSpan);
+        header.appendChild(metaDiv);
+        
+        el.appendChild(header);
+        
+        const bodyDiv = document.createElement('div');
+        bodyDiv.className = 'release-body';
+        const parsedDoc = new DOMParser().parseFromString(bodyHtml, 'text/html');
+        while (parsedDoc.body.firstChild) {
+          bodyDiv.appendChild(parsedDoc.body.firstChild);
+        }
+        el.appendChild(bodyDiv);
+        
         container.appendChild(el);
       });
 
@@ -66,6 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => {
       console.error(err);
-      container.innerHTML = '<p style="text-align:center; color: #ef4444;">Failed to load releases from GitHub.</p>';
+      container.textContent = '';
+      const p = document.createElement('p');
+      p.textContent = 'Failed to load releases from GitHub.';
+      p.style.textAlign = 'center';
+      p.style.color = '#ef4444';
+      container.appendChild(p);
     });
 });

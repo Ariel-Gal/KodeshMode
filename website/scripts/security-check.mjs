@@ -22,7 +22,9 @@ const index1 = await readFile(path.join(root, 'index.html'), 'utf8');
 const index2 = await readFile(path.join(root, 'home.html'), 'utf8');
 const index3 = await readFile(path.join(root, 'releases.html'), 'utf8');
 const index = index1 + index2 + index3;
-const main = await readFile(path.join(root, 'main.js'), 'utf8');
+const main1 = await readFile(path.join(root, 'main.js'), 'utf8');
+const main2 = await readFile(path.join(root, 'releases.js'), 'utf8');
+const main = main1 + main2;
 const style = await readFile(path.join(root, 'style.css'), 'utf8');
 
 if (/Content-Security-Policy/.test(index)) pass('CSP meta tag is present.');
