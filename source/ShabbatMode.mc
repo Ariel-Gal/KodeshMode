@@ -4,6 +4,8 @@ import Toybox.System;
 import Toybox.Sensor;
 import Toybox.Position;
 import Toybox.WatchUi;
+import Toybox.ActivityRecording;
+import Toybox.Activity;
 
 module ShabbatMode {
     const KEY_ENABLED = "manualShabbatMode";
@@ -19,6 +21,7 @@ module ShabbatMode {
     const STATUS_DURATION_MS = 5000;
     const GPS_REQUEST_INTERVAL_MS = 60000;
     var _lastGpsRequestTimer as Number = 0;
+    var _session = null;
 
     function loadTextResource(id) as String {
         try {
@@ -375,6 +378,22 @@ module ShabbatMode {
             disableAppOwnedSensors();
         }
 
+        try {
+            if (Toybox has :ActivityRecording) {
+                _session = ActivityRecording.createSession({
+                    :name=>"KodeshMode",
+                    :sport=>Activity.SPORT_GENERIC
+                });
+                _session.start();
+            }
+        } catch (ex) {
+        }
+
+        // Call again to ensure sensors activated by the session are disabled
+        if (!isSpecialModeEnabled()) {
+            disableAppOwnedSensors();
+        }
+
         KodeshSettings.setValue(KEY_ENABLED, true);
         Storage.setValue("hasSeenGuide", true);
         clearStatus();
@@ -382,6 +401,17 @@ module ShabbatMode {
     }
 
     function disable() as Boolean {
+        try {
+            if (_session != null) {
+                if ((_session as ActivityRecording.Session).isRecording()) {
+                    (_session as ActivityRecording.Session).stop();
+                }
+                (_session as ActivityRecording.Session).discard();
+                _session = null;
+            }
+        } catch (ex) {
+        }
+
         KodeshSettings.setValue(KEY_ENABLED, false);
         setStatus(shabbatModeOffText());
         return true;

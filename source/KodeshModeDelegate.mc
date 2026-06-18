@@ -1,11 +1,15 @@
 import Toybox.Lang;
 import Toybox.WatchUi;
 import Toybox.System;
+import Toybox.Timer;
 
 class KodeshModeDelegate extends WatchUi.BehaviorDelegate {
     private const EVENT_DEBOUNCE_MS = 500;
 
     private var _lastKeyTime as Number = 0;
+    private var _exitTapCount as Number = 0;
+    private var _exitTimer as Timer.Timer?;
+    private const EXIT_TIMEOUT_MS = 5000;
 
     function initialize() {
         BehaviorDelegate.initialize();
@@ -37,13 +41,12 @@ class KodeshModeDelegate extends WatchUi.BehaviorDelegate {
         return false;
     }
 
-    function showExitInstruction() as Void {
-        if (ShabbatMode.isHebrew()) {
-            ShabbatMode.setStatus(WatchUi.loadResource(Rez.Strings.TextExitInstructionHe));
-        } else {
-            ShabbatMode.setStatus(WatchUi.loadResource(Rez.Strings.TextExitInstructionEn));
+    function onExitTimeout() as Void {
+        _exitTapCount = 0;
+        if (_exitTimer != null) {
+            _exitTimer.stop();
+            _exitTimer = null;
         }
-        WatchUi.requestUpdate();
     }
 
     function handlePrimaryPressed() as Void {
@@ -56,8 +59,25 @@ class KodeshModeDelegate extends WatchUi.BehaviorDelegate {
         _lastKeyTime = now;
 
         if (ShabbatMode.isEnabled()) {
-            var exitView = new ShabbatExitView(1);
-            WatchUi.pushView(exitView, new ShabbatExitDelegate(exitView, 1), WatchUi.SLIDE_IMMEDIATE);
+            if (_exitTimer != null) {
+                _exitTimer.stop();
+            } else {
+                _exitTimer = new Timer.Timer();
+            }
+            _exitTimer.start(method(:onExitTimeout), EXIT_TIMEOUT_MS, false);
+
+            _exitTapCount++;
+
+            if (_exitTapCount >= 3) {
+                if (_exitTimer != null) {
+                    _exitTimer.stop();
+                    _exitTimer = null;
+                }
+                var tapToPass = _exitTapCount;
+                _exitTapCount = 0; // reset for next time or if exit is cancelled
+                var exitView = new ShabbatExitView(tapToPass);
+                WatchUi.pushView(exitView, new ShabbatExitDelegate(exitView, tapToPass), WatchUi.SLIDE_IMMEDIATE);
+            }
         } else {
             var enabled = ShabbatMode.enable();
             if (!enabled) {
@@ -86,7 +106,7 @@ class KodeshModeDelegate extends WatchUi.BehaviorDelegate {
 
     function showPhoneSettingsOnly() as Boolean {
         if (ShabbatMode.isEnabled()) {
-            showExitInstruction();
+            return true;
         } else {
             ShabbatMode.setStatus(ShabbatMode.settingsOnPhoneText());
             WatchUi.requestUpdate();
@@ -97,7 +117,6 @@ class KodeshModeDelegate extends WatchUi.BehaviorDelegate {
 
     function onBack() as Boolean {
         if (ShabbatMode.isEnabled()) {
-            showExitInstruction();
             return true;
         }
 
@@ -119,6 +138,10 @@ class KodeshModeDelegate extends WatchUi.BehaviorDelegate {
             return openMainMenuDebounced();
         }
 
+        if (ShabbatMode.isEnabled()) {
+            return true;
+        }
+
         return false;
     }
 
@@ -132,8 +155,7 @@ class KodeshModeDelegate extends WatchUi.BehaviorDelegate {
             return true;
         }
 
-        if (isBackKey(keyEvent) && ShabbatMode.isEnabled()) {
-            showExitInstruction();
+        if (ShabbatMode.isEnabled()) {
             return true;
         }
 
